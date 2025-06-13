@@ -291,6 +291,14 @@ nav {
     align-items: center;
 }
 
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: flex;
+}
+
 .floating-card {
     position: absolute;
     background: white;
@@ -714,18 +722,7 @@ footer {
     }
 
     .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: url('./img/hero.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 0.6;
-        z-index: 0;
+        display: none;
     }
 
     .hero-content {
@@ -753,8 +750,24 @@ footer {
         font-weight: 500;
     }
 
-    .hero-image {
+    .desktop-only {
         display: none;
+    }
+
+    .mobile-only {
+        display: flex;
+        margin: 2rem 0;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mobile-only img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     .hero-badge {
