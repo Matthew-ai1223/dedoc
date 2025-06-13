@@ -1,0 +1,2502 @@
+[
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 1)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 1)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 1)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 1)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 1)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 1)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 1)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 1)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 1)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 1)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 2)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 2)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 2)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 2)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 2)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 2)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 2)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 2)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 2)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 2)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 3)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 3)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 3)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 3)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 3)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 3)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 3)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 3)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 3)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 3)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 4)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 4)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 4)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 4)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 4)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 4)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 4)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 4)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 4)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 4)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 5)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 5)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 5)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 5)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 5)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 5)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 5)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 5)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 5)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 5)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 6)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 6)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 6)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 6)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 6)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 6)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 6)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 6)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 6)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 6)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 7)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 7)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 7)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 7)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 7)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 7)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 7)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 7)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 7)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 7)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 8)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 8)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 8)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 8)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 8)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 8)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 8)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 8)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 8)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 8)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 9)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 9)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 9)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 9)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 9)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 9)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 9)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 9)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 9)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 9)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 10)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 10)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 10)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 10)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 10)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 10)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 10)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 10)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 10)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 10)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 11)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 11)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 11)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 11)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 11)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 11)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 11)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 11)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 11)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 11)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 12)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 12)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 12)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 12)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 12)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 12)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 12)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 12)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 12)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 12)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 13)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 13)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 13)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 13)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 13)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 13)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 13)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 13)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 13)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 13)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 14)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 14)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 14)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 14)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 14)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 14)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 14)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 14)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 14)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 14)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 15)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 15)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 15)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 15)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 15)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 15)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 15)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 15)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 15)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 15)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 16)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 16)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 16)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 16)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 16)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 16)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 16)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 16)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 16)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 16)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 17)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 17)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 17)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 17)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 17)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 17)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 17)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 17)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 17)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 17)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 18)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 18)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 18)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 18)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 18)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 18)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 18)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 18)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 18)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 18)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 19)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 19)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 19)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 19)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 19)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 19)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 19)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 19)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 19)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 19)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 20)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 20)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 20)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 20)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 20)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 20)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 20)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 20)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 20)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 20)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 21)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 21)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 21)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 21)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 21)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 21)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 21)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 21)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 21)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 21)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 22)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 22)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 22)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 22)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 22)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 22)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 22)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 22)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 22)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 22)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 23)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 23)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 23)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 23)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 23)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 23)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 23)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 23)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 23)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 23)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 24)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 24)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 24)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 24)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 24)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 24)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 24)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 24)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 24)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 24)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 25)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 25)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 25)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 25)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 25)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 25)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 25)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 25)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 25)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 25)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 26)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 26)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 26)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 26)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 26)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 26)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 26)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 26)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 26)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 26)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 27)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 27)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 27)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 27)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 27)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 27)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 27)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 27)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 27)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 27)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 28)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 28)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 28)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 28)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 28)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 28)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 28)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 28)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 28)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 28)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 29)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 29)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 29)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 29)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 29)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 29)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 29)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 29)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 29)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 29)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 30)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 30)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 30)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 30)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 30)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 30)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 30)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 30)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 30)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 30)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 31)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 31)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 31)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 31)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 31)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 31)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 31)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 31)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 31)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 31)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 32)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 32)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 32)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 32)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 32)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 32)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 32)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 32)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 32)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 32)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 33)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 33)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 33)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 33)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 33)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 33)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 33)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 33)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 33)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 33)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 34)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 34)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 34)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 34)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 34)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 34)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 34)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 34)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 34)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 34)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 35)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 35)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 35)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 35)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 35)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 35)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 35)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 35)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 35)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 35)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 36)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 36)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 36)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 36)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 36)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 36)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 36)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 36)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 36)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 36)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 37)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 37)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 37)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 37)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 37)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 37)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 37)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 37)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 37)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 37)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 38)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 38)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 38)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 38)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 38)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 38)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 38)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 38)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 38)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 38)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 39)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 39)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 39)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 39)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 39)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 39)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 39)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 39)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 39)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 39)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 40)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 40)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 40)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 40)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 40)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 40)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 40)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 40)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 40)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 40)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 41)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 41)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 41)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 41)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 41)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 41)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 41)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 41)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 41)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 41)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 42)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 42)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 42)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 42)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 42)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 42)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 42)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 42)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 42)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 42)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 43)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 43)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 43)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 43)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 43)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 43)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 43)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 43)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 43)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 43)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 44)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 44)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 44)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 44)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 44)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 44)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 44)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 44)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 44)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 44)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 45)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 45)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 45)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 45)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 45)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 45)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 45)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 45)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 45)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 45)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 46)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 46)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 46)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 46)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 46)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 46)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 46)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 46)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 46)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 46)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 47)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 47)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 47)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 47)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 47)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 47)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 47)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 47)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 47)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 47)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 48)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 48)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 48)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 48)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 48)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 48)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 48)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 48)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 48)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 48)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 49)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 49)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 49)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 49)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 49)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 49)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 49)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 49)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 49)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 49)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  },
+  {
+    "topic": "Malaria",
+    "question": "What are the symptoms of malaria? (version 50)",
+    "context": "Malaria is caused by Plasmodium parasites transmitted through mosquito bites. Symptoms include fever, chills, vomiting, and headache."
+  },
+  {
+    "topic": "Diabetes",
+    "question": "How is type 2 diabetes treated? (version 50)",
+    "context": "Type 2 diabetes is treated through lifestyle changes, such as healthy eating and regular exercise, and medications like metformin."
+  },
+  {
+    "topic": "Typhoid",
+    "question": "What causes typhoid? (version 50)",
+    "context": "Typhoid is caused by the Salmonella typhi bacteria and spreads through contaminated food or water."
+  },
+  {
+    "topic": "Hypertension",
+    "question": "What are the effects of high blood pressure? (version 50)",
+    "context": "High blood pressure can lead to heart disease, stroke, and kidney problems if not managed with medication and lifestyle changes."
+  },
+  {
+    "topic": "Asthma",
+    "question": "What triggers asthma attacks? (version 50)",
+    "context": "Asthma attacks can be triggered by allergens, exercise, cold air, or respiratory infections."
+  },
+  {
+    "topic": "COVID-19",
+    "question": "What are the symptoms of COVID-19? (version 50)",
+    "context": "COVID-19 symptoms include fever, cough, fatigue, and loss of taste or smell. Severe cases can lead to difficulty breathing."
+  },
+  {
+    "topic": "Tuberculosis",
+    "question": "How is tuberculosis transmitted? (version 50)",
+    "context": "Tuberculosis is transmitted through airborne droplets when an infected person coughs or sneezes."
+  },
+  {
+    "topic": "Appendicitis",
+    "question": "What are the symptoms of appendicitis? (version 50)",
+    "context": "Appendicitis symptoms include pain in the lower right abdomen, nausea, vomiting, and fever. Surgery is usually required."
+  },
+  {
+    "topic": "Hepatitis B",
+    "question": "What is Hepatitis B and how is it spread? (version 50)",
+    "context": "Hepatitis B is a liver infection caused by the hepatitis B virus. It spreads through blood, semen, or other body fluids."
+  },
+  {
+    "topic": "Anemia",
+    "question": "What causes anemia? (version 50)",
+    "context": "Anemia is caused by a deficiency in red blood cells or hemoglobin. It can result from poor nutrition, chronic diseases, or blood loss."
+  }
+]
