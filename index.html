@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeDoc - Your AI-Powered Healthcare Companion</title>
+    <link rel="stylesheet" href="asset/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <div class="splash-content">
+            <div class="logo-container">
+                <i class="fas fa-heartbeat pulse"></i>
+            </div>
+            <h1>DeDoc</h1>
+            <p>Your AI-Powered Healthcare Companion</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>DeDoc</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge">AI-Powered Healthcare</div>
+                <h1>Welcome to the Future of Healthcare</h1>
+                <p>Experience revolutionary healthcare solutions with our comprehensive Clinical Decision Support System. Get instant access to AI doctors, nurses, and mental health support.</p>
+                <div class="cta-buttons">
+                    <a href="#login" class="primary-btn">
+                        <span>Meet Your Doctore</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#services" class="secondary-btn">
+                        <span>Explore Services</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Active Users</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="floating-card card-1">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Real-time Monitoring</span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Analysis</span>
+                </div>
+                <img src="asset/img/hero.png" alt="AI Healthcare illustration">
+            </div>
+            <div class="hero-shape"></div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">Our Services</div>
+                <h2>Comprehensive Healthcare Solutions</h2>
+                <p class="section-subtitle">Experience the future of healthcare with our AI-powered services</p>
+            </div>
+            
+            <div class="service-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-badge">AI Doctor</span>
+                        <h3>AI Medical Doctor</h3>
+                        <p>24/7 access to AI-powered virtual doctor consultations for immediate medical guidance</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Instant Medical Advice</li>
+                            <li><i class="fas fa-check-circle"></i> Symptom Analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Treatment Recommendations</li>
+                        </ul>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-badge">AI Nurse</span>
+                        <h3>AI Medical Nurses</h3>
+                        <p>Round-the-clock nursing assistance for basic health advice and care guidance</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Care Instructions</li>
+                            <li><i class="fas fa-check-circle"></i> Health Monitoring</li>
+                            <li><i class="fas fa-check-circle"></i> Medication Reminders</li>
+                        </ul>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-badge">Mental Health</span>
+                        <h3>AI Mental Health Therapist</h3>
+                        <p>Supportive virtual therapy and mental health counseling powered by AI</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> 24/7 Emotional Support</li>
+                            <li><i class="fas fa-check-circle"></i> Stress Management</li>
+                            <li><i class="fas fa-check-circle"></i> Personalized Guidance</li>
+                        </ul>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-badge">Diagnosis</span>
+                        <h3>Symptom Checker</h3>
+                        <p>Interactive tool for symptom analysis and preliminary health assessment</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Quick Assessment</li>
+                            <li><i class="fas fa-check-circle"></i> Risk Evaluation</li>
+                            <li><i class="fas fa-check-circle"></i> Health Insights</li>
+                        </ul>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-badge">Emergency</span>
+                        <h3>Emergency Support</h3>
+                        <p>Quick response system for urgent medical assistance and emergency care</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Rapid Response</li>
+                            <li><i class="fas fa-check-circle"></i> Emergency Guidance</li>
+                            <li><i class="fas fa-check-circle"></i> Location Tracking</li>
+                        </ul>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-badge">Updates</span>
+                        <h3>Daily Updates</h3>
+                        <p>Regular medical updates via WhatsApp and Gmail to keep you informed</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Health Tips</li>
+                            <li><i class="fas fa-check-circle"></i> Medical News</li>
+                            <li><i class="fas fa-check-circle"></i> Custom Alerts</li>
+                        </ul>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2>Key Features</h2>
+            <p class="section-subtitle">Why Choose DeDoc?</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Login</h3>
+                    <p>Protected access to your personal health dashboard</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Easy Payments</h3>
+                    <p>Seamless payment gateway and subscription management</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>User Dashboard</h3>
+                    <p>Intuitive interface for managing your health journey</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock access to healthcare assistance</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Take Control of Your Health?</h2>
+                <p>Join thousands of users who trust DeDoc for their healthcare needs</p>
+                <a href="#login" class="primary-btn">Get Started Now</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DeDoc</h3>
+                <p>Your AI-Powered Healthcare Companion</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> support@dedoc.com</li>
+                    <li><i class="fas fa-phone"></i> +1 (800) DEDOC-HELP</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> DeDoc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="asset/style.js"></script>
+</body>
+</html>
