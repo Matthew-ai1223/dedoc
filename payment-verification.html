@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Verification - DeDoc</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e8edf5);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .verification-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .status-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .success { color: #2ecc71; }
+        .error { color: #e74c3c; }
+        .pending { color: #f1c40f; }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #4a90e2, #9b59b6);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+        }
+
+        .reference {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="verification-container">
+        <div id="statusIcon" class="status-icon pending">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <h1 id="statusTitle">Verifying Payment...</h1>
+        <p id="statusMessage">Please wait while we verify your payment.</p>
+        <div id="referenceNumber" class="reference"></div>
+        <a href="/dashboard.html" class="btn" id="dashboardBtn" style="display: none;">Go to Dashboard</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const reference = urlParams.get('reference') || urlParams.get('trxref');
+            const token = localStorage.getItem('token');
+
+            if (!reference) {
+                updateUI('error', 'Missing Reference', 'No payment reference found.');
+                return;
+            }
+
+            if (!token) {
+                updateUI('error', 'Authentication Error', 'Please log in to verify your payment.');
+                return;
+            }
+
+            document.getElementById('referenceNumber').textContent = `Reference: ${reference}`;
+
+            // Verify the payment
+            verifyPayment(reference, token);
+        });
+
+        function verifyPayment(reference, token) {
+            fetch(`http://localhost:5000/api/payments/verify?reference=${reference}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => {
+                        throw new Error(err.message || `HTTP error! status: ${response.status}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                    updateUI('success', 'Payment Successful!', 'Your payment has been verified. Your subscription is now active.');
+                } else {
+                    throw new Error(data.message || 'Payment verification failed');
+                }
+            })
+            .catch(error => {
+                console.error('Verification Error:', error);
+                updateUI('error', 'Verification Failed', 
+                    `We couldn't verify your payment. If your account was debited, please contact support.<br>Error: ${error.message}`);
+            });
+        }
+
+        function updateUI(status, title, message) {
+            const statusIcon = document.getElementById('statusIcon');
+            const statusTitle = document.getElementById('statusTitle');
+            const statusMessage = document.getElementById('statusMessage');
+            const dashboardBtn = document.getElementById('dashboardBtn');
+
+            // Update icon
+            statusIcon.className = `status-icon ${status}`;
+            statusIcon.innerHTML = status === 'success' 
+                ? '<i class="fas fa-check-circle"></i>'
+                : status === 'error' 
+                    ? '<i class="fas fa-times-circle"></i>'
+                    : '<i class="fas fa-spinner fa-spin"></i>';
+
+            // Update text
+            statusTitle.textContent = title;
+            statusMessage.innerHTML = message;
+
+            // Show/hide dashboard button
+            dashboardBtn.style.display = status === 'success' ? 'inline-block' : 'none';
+        }
+    </script>
+</body>
+</html>
