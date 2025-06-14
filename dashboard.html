@@ -891,7 +891,7 @@
                 </div>
                 <div class="health-stat">
                     <h3>Member Since</h3>
-                    <p>Jan 2024</p>
+                    <p id="createdAt">Jan 2024</p>
                 </div>
             </div>
         </div>
@@ -1084,7 +1084,7 @@
             document.getElementById('username').textContent = userData.fullName.split(' ')[0] + '!';
 
             try {
-                // You can also fetch fresh user data from the server
+                // Fetch fresh user data from the server
                 const response = await fetch('http://localhost:5000/api/auth/user', {
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -1098,6 +1098,18 @@
                     
                     // Update UI with fresh data
                     updateUIWithUserData(freshUserData);
+
+                    // Fetch subscription and payment info
+                    const paymentResponse = await fetch('http://localhost:5000/api/payments/status', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    if (paymentResponse.ok) {
+                        const paymentData = await paymentResponse.json();
+                        updatePaymentInfo(paymentData);
+                    }
                 }
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -1116,7 +1128,73 @@
             if (document.getElementById('phone')) {
                 document.getElementById('phone').value = userData.phoneNumber;
             }
+            
+            // Format and display member since date
+            if (userData.createdAt) {  // Using createdAt from the database
+                const regDate = new Date(userData.createdAt);
+                const formattedDate = regDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+                
+                // Update member since in health card
+                const healthCardMemberSince = document.getElementById('createdAt');
+                if (healthCardMemberSince) {
+                    healthCardMemberSince.textContent = formattedDate;
+                }
+                
+                // Update member since in profile modal
+                const profileMemberSince = document.querySelector('.profile-info-section input[disabled]');
+                if (profileMemberSince) {
+                    profileMemberSince.value = formattedDate;
+                }
+            }
             // Add more fields as needed
+        }
+
+        // Update payment information in UI
+        function updatePaymentInfo(paymentData) {
+            // Update subscription info
+            const accountBadge = document.querySelector('.account-badge');
+            if (accountBadge) {
+                accountBadge.textContent = paymentData.subscription.plan ? `${paymentData.subscription.plan} Account` : 'Free Account';
+            }
+
+            // Update payment dates
+            const subscriptionInfo = document.querySelector('.subscription-info');
+            if (subscriptionInfo && paymentData.lastPayment) {
+                const lastPaymentDate = new Date(paymentData.lastPayment.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                const nextPaymentDate = new Date(paymentData.nextPaymentDue).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                
+                subscriptionInfo.innerHTML = `
+                    <p>Last Payment: <strong>${lastPaymentDate}</strong></p>
+                    <p>Payment Due: <strong>${nextPaymentDate}</strong></p>
+                `;
+            }
+
+            // Update account status
+            const statusActive = document.querySelector('.status-active');
+            if (statusActive) {
+                statusActive.textContent = paymentData.subscription.status || 'Inactive';
+                statusActive.style.color = paymentData.subscription.status === 'active' ? '#2ecc71' : '#e74c3c';
+            }
+
+            // Update plan type
+            const planType = document.querySelector('.health-stat p:not(.status-active)');
+            if (planType) {
+                planType.textContent = paymentData.subscription.plan || 'Free';
+            }
+
+            // Show/hide premium activation button based on subscription status
+            const premiumActivation = document.querySelector('.premium-activation');
+            const meetDoctorBtn = document.querySelector('.activate-btn[onclick*="ai_doc_dashboard"]');
+            
+            if (premiumActivation && meetDoctorBtn) {
+                if (paymentData.subscription.status === 'active') {
+                    premiumActivation.style.display = 'none';
+                    meetDoctorBtn.style.display = 'flex';
+                } else {
+                    premiumActivation.style.display = 'flex';
+                    meetDoctorBtn.style.display = 'none';
+                }
+            }
         }
 
         // Handle logout

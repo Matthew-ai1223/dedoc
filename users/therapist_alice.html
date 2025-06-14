@@ -231,11 +231,20 @@
 
     <main class="chat-container">
         <div class="chat-wrapper">
-            <iframe
-                src="https://www.chatbase.co/chatbot-iframe/l1HvhOp2gi03cxFZGbAq_"
-                class="chat-iframe"
-                frameborder="0"
-            ></iframe>
+            <div id="chatContainer" style="display: none;">
+                <iframe
+                    src="https://www.chatbase.co/chatbot-iframe/l1HvhOp2gi03cxFZGbAq_"
+                    class="chat-iframe"
+                    frameborder="0"
+                ></iframe>
+            </div>
+            <div id="subscriptionPrompt" style="display: none; text-align: center; padding: 20px;">
+                <h2>Premium Feature</h2>
+                <p>This feature requires an active subscription.</p>
+                <button onclick="window.location.href='../payment.html'" style="background: var(--gradient-primary); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+                    Subscribe Now
+                </button>
+            </div>
         </div>
 
         <div class="features-bar">
@@ -271,5 +280,23 @@
         <i class="fas fa-arrow-left"></i>
         Back to Dashboard
     </a> -->
+
+    <script src="subscription_check.js"></script>
+    <script>
+        // Check subscription status when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            const chatContainer = document.getElementById('chatContainer');
+            const subscriptionPrompt = document.getElementById('subscriptionPrompt');
+            
+            const isSubscribed = await checkSubscription();
+            if (isSubscribed) {
+                chatContainer.style.display = 'block';
+                subscriptionPrompt.style.display = 'none';
+            } else {
+                chatContainer.style.display = 'none';
+                subscriptionPrompt.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
