@@ -69,6 +69,35 @@
             margin: 20px 0;
             font-family: monospace;
         }
+
+        .error-details {
+            background: #fff3f3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 14px;
+            color: #e74c3c;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .retry-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .retry-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -80,33 +109,58 @@
         <h1 id="statusTitle">Verifying Payment...</h1>
         <p id="statusMessage">Please wait while we verify your payment.</p>
         <div id="referenceNumber" class="reference"></div>
+        <div id="errorDetails" class="error-details" style="display: none;"></div>
         <a href="/dashboard.html" class="btn" id="dashboardBtn" style="display: none;">Go to Dashboard</a>
+        <a href="javascript:void(0)" class="retry-btn" id="retryBtn" style="display: none;" onclick="retryVerification()">Retry Verification</a>
     </div>
 
     <script>
+        let verificationAttempts = 0;
+        const MAX_ATTEMPTS = 3;
+        const RETRY_DELAY = 2000; // 2 seconds
+
+        // Check authentication
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                updateUI('error', 'Authentication Error', 'Please log in to verify your payment.');
+                setTimeout(() => {
+                    window.location.href = '/login.html';
+                }, 2000);
+                return null;
+            }
+            return token;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            const token = checkAuth();
+            if (!token) return;
+
             const urlParams = new URLSearchParams(window.location.search);
             const reference = urlParams.get('reference') || urlParams.get('trxref');
-            const token = localStorage.getItem('token');
 
             if (!reference) {
                 updateUI('error', 'Missing Reference', 'No payment reference found.');
                 return;
             }
 
-            if (!token) {
-                updateUI('error', 'Authentication Error', 'Please log in to verify your payment.');
-                return;
-            }
-
             document.getElementById('referenceNumber').textContent = `Reference: ${reference}`;
-
-            // Verify the payment
             verifyPayment(reference, token);
         });
 
         function verifyPayment(reference, token) {
-            fetch(`http://localhost:5000/api/payments/verify?reference=${reference}`, {
+            if (verificationAttempts >= MAX_ATTEMPTS) {
+                updateUI('error', 'Verification Failed', 
+                    'Maximum verification attempts reached. Please contact support.');
+                return;
+            }
+
+            verificationAttempts++;
+            updateUI('pending', 'Verifying Payment...', 
+                `Attempt ${verificationAttempts} of ${MAX_ATTEMPTS}: Please wait while we verify your payment.`);
+
+            // First, get the payment details
+            fetch(`http://localhost:5000/api/payments/details?reference=${reference}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -116,22 +170,103 @@
             .then(response => {
                 if (!response.ok) {
                     return response.json().then(err => {
-                        throw new Error(err.message || `HTTP error! status: ${response.status}`);
+                        throw new Error(JSON.stringify(err));
+                    });
+                }
+                return response.json();
+            })
+            .then(paymentData => {
+                // Now verify the payment
+                return fetch(`http://localhost:5000/api/payments/verify?reference=${reference}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => {
+                        throw new Error(JSON.stringify(err));
                     });
                 }
                 return response.json();
             })
             .then(data => {
+                console.log('Verification response:', data);
                 if (data.status === 'success') {
-                    updateUI('success', 'Payment Successful!', 'Your payment has been verified. Your subscription is now active.');
+                    // Update subscription data in localStorage
+                    if (data.data && data.data.subscription) {
+                        const userData = JSON.parse(localStorage.getItem('user') || '{}');
+                        userData.subscription = {
+                            ...data.data.subscription,
+                            startDate: new Date(data.data.subscription.startDate),
+                            endDate: new Date(data.data.subscription.endDate)
+                        };
+                        localStorage.setItem('user', JSON.stringify(userData));
+
+                        // Format the subscription end date for display
+                        const endDate = new Date(data.data.subscription.endDate);
+                        const formattedEndDate = endDate.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+
+                        updateUI('success', 'Payment Successful!', 
+                            `Your payment has been verified and your subscription is now active.<br><br>
+                            <strong>Plan:</strong> ${data.data.subscription.plan.charAt(0).toUpperCase() + data.data.subscription.plan.slice(1)}<br>
+                            <strong>Valid until:</strong> ${formattedEndDate}`);
+                    } else {
+                        updateUI('success', 'Payment Successful!', 
+                            'Your payment has been verified and your subscription is now active.');
+                    }
+
+                    // Add subscription check script
+                    const script = document.createElement('script');
+                    script.src = '/users/subscription_check.js';
+                    document.body.appendChild(script);
+
+                    // Show dashboard button with subscription status
+                    const dashboardBtn = document.getElementById('dashboardBtn');
+                    dashboardBtn.style.display = 'inline-block';
+                    dashboardBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // Check subscription before redirecting
+                        const subscription = JSON.parse(localStorage.getItem('user') || '{}').subscription;
+                        if (handleSubscriptionExpiration(subscription)) {
+                            window.location.href = '/dashboard.html';
+                        }
+                    });
                 } else {
                     throw new Error(data.message || 'Payment verification failed');
                 }
             })
             .catch(error => {
                 console.error('Verification Error:', error);
-                updateUI('error', 'Verification Failed', 
-                    `We couldn't verify your payment. If your account was debited, please contact support.<br>Error: ${error.message}`);
+                let errorMessage = error.message;
+                try {
+                    const errorObj = JSON.parse(error.message);
+                    errorMessage = errorObj.message || errorObj.error || error.message;
+                } catch (e) {
+                    // Keep original error message if parsing fails
+                }
+
+                if (verificationAttempts < MAX_ATTEMPTS) {
+                    // Retry after delay
+                    setTimeout(() => verifyPayment(reference, token), RETRY_DELAY);
+                } else {
+                    updateUI('error', 'Verification Failed', 
+                        `We couldn't verify your payment after ${MAX_ATTEMPTS} attempts. If your account was debited, please contact support.`);
+                    
+                    // Show error details
+                    const errorDetails = document.getElementById('errorDetails');
+                    errorDetails.style.display = 'block';
+                    errorDetails.textContent = `Error Details: ${errorMessage}`;
+                }
             });
         }
 
@@ -140,6 +275,8 @@
             const statusTitle = document.getElementById('statusTitle');
             const statusMessage = document.getElementById('statusMessage');
             const dashboardBtn = document.getElementById('dashboardBtn');
+            const retryBtn = document.getElementById('retryBtn');
+            const errorDetails = document.getElementById('errorDetails');
 
             // Update icon
             statusIcon.className = `status-icon ${status}`;
@@ -153,8 +290,22 @@
             statusTitle.textContent = title;
             statusMessage.innerHTML = message;
 
-            // Show/hide dashboard button
+            // Show/hide buttons
             dashboardBtn.style.display = status === 'success' ? 'inline-block' : 'none';
+            retryBtn.style.display = status === 'error' ? 'inline-block' : 'none';
+            errorDetails.style.display = status === 'error' ? 'block' : 'none';
+        }
+
+        function retryVerification() {
+            const token = checkAuth();
+            if (!token) return;
+
+            verificationAttempts = 0;
+            const urlParams = new URLSearchParams(window.location.search);
+            const reference = urlParams.get('reference') || urlParams.get('trxref');
+            if (reference) {
+                verifyPayment(reference, token);
+            }
         }
     </script>
 </body>
