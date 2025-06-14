@@ -844,7 +844,7 @@
             <ul class="menu-items">
                 <li><a href="#" id="profileLink"><i class="fas fa-user-circle"></i> Profile</a></li>
                 <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li><a href="#" title="Logout">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -1065,31 +1065,94 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
+        // Check authentication
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+            return token;
+        }
 
-        // Function to check premium status and show/hide elements
-        function updatePremiumElements() {
-            // This should be replaced with your actual premium status check
-            const isPremiumUser = document.querySelector('.account-badge').textContent.includes('Premium');
+        // Load user data
+        async function loadUserData() {
+            const token = checkAuth();
+            const userData = JSON.parse(localStorage.getItem('user'));
             
-            // Get the elements
-            const premiumActivation = document.querySelector('.premium-activation');
-            const meetDoctorBtn = document.querySelector('.activate-btn[onclick*="ai_doc_dashboard"]');
-            
-            if (isPremiumUser) {
-                // Hide premium activation and show meet doctor button
-                if (premiumActivation) premiumActivation.style.display = 'none';
-                if (meetDoctorBtn) meetDoctorBtn.style.display = 'flex';
-            } else {
-                // Show premium activation and hide meet doctor button
-                if (premiumActivation) premiumActivation.style.display = 'block';
-                if (meetDoctorBtn) meetDoctorBtn.style.display = 'none';
+            // Update username in the welcome message
+            document.getElementById('username').textContent = userData.fullName.split(' ')[0] + '!';
+
+            try {
+                // You can also fetch fresh user data from the server
+                const response = await fetch('http://localhost:5000/api/auth/user', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const freshUserData = await response.json();
+                    // Update localStorage with fresh data
+                    localStorage.setItem('user', JSON.stringify(freshUserData));
+                    
+                    // Update UI with fresh data
+                    updateUIWithUserData(freshUserData);
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
             }
         }
+
+        // Update UI with user data
+        function updateUIWithUserData(userData) {
+            // Update profile information
+            if (document.getElementById('fullName')) {
+                document.getElementById('fullName').value = userData.fullName;
+            }
+            if (document.getElementById('email')) {
+                document.getElementById('email').value = userData.email;
+            }
+            if (document.getElementById('phone')) {
+                document.getElementById('phone').value = userData.phoneNumber;
+            }
+            // Add more fields as needed
+        }
+
+        // Handle logout
+        function handleLogout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            localStorage.removeItem('rememberMe');
+            window.location.href = 'login.html';
+        }
+
+        // Initialize AOS with a small delay to ensure everything is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check authentication first
+            checkAuth();
+
+            setTimeout(function() {
+                AOS.init({
+                    once: true,
+                    mirror: false,
+                    duration: 800,
+                    offset: 50
+                });
+            }, 100);
+
+            // Load user data
+            loadUserData();
+
+            // Add logout event listener
+            const logoutLink = document.querySelector('a[href="#"][title="Logout"]');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    handleLogout();
+                });
+            }
+        });
 
         // Function to get random items from array
         function getRandomItems(arr, count) {
@@ -1203,7 +1266,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadHealthTips();
             loadDoctorSpeeches();
-            updatePremiumElements();
 
             // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');

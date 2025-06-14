@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="asset/img/favicon.png" type="image/x-icon">
     <style>
         .login-container {
@@ -155,11 +156,37 @@
             font-size: 1.1em;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .login-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .login-button.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .login-button.loading i {
+            display: none;
+        }
+
+        .login-button.loading::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            border-top: 2px solid transparent;
+            animation: spin 1s linear infinite;
         }
 
         .social-login {
@@ -226,10 +253,42 @@
                 padding: 30px;
             }
         }
+
+        /* Add loader styles */
+        .loader-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid #667eea;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+
         <div class="login-card" data-aos="fade-up">
             <div class="login-image">
                 <h2 data-aos="fade-up" data-aos-delay="200">Welcome to DeDoc</h2>
@@ -243,15 +302,15 @@
                 <form id="loginForm" data-aos="fade-up" data-aos-delay="600">
                     <div class="form-group">
                         <i class="fas fa-user-circle"></i>
-                        <input type="name" class="form-input" placeholder="Username" required>
+                        <input type="name" id="username" class="form-input" placeholder="Username" required>
                     </div>
                     <div class="form-group">
                         <i class="fas fa-lock"></i>
-                        <input type="password" class="form-input" placeholder="Password" required>
+                        <input type="password" id="password" class="form-input" placeholder="Password" required>
                     </div>
                     <div class="remember-forgot">
                         <label class="remember-me">
-                            <input type="checkbox">
+                            <input type="checkbox" id="rememberMe">
                             <span>Remember me</span>
                         </label>
                         <a href="#" class="forgot-password">Forgot password?</a>
@@ -285,11 +344,123 @@
             easing: 'ease-out-cubic'
         });
 
-        // Basic form validation and submission
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            // Add your login logic here
-            window.location.href = 'dashboard.html'; // Redirect to dashboard after successful login
+            
+            const loginButton = document.querySelector('.login-button');
+            const loaderContainer = document.querySelector('.loader-container');
+            
+            // Show loading state
+            loginButton.classList.add('loading');
+            loaderContainer.style.display = 'flex';
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                // Hide loading state
+                loginButton.classList.remove('loading');
+                loaderContainer.style.display = 'none';
+
+                if (response.ok) {
+                    // Store the token and user data
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    if (rememberMe) {
+                        // If remember me is checked, store credentials securely
+                        localStorage.setItem('rememberMe', 'true');
+                    }
+
+                    // Show success message with Sweet Alert
+                    await Swal.fire({
+                        icon: 'success',
+                        title: 'Login Successful!',
+                        text: 'Welcome back to DeDoc Health System',
+                        confirmButtonColor: '#667eea',
+                        timer: 1500,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+
+                    // Redirect to dashboard
+                    window.location.href = 'dashboard.html';
+                } else {
+                    // Show error message with Sweet Alert
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        text: data.message || 'Invalid username or password.',
+                        confirmButtonColor: '#667eea'
+                    });
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                
+                // Hide loading state
+                loginButton.classList.remove('loading');
+                loaderContainer.style.display = 'none';
+
+                // Show error message with Sweet Alert
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Connection Error',
+                    text: 'Unable to connect to the server. Please try again later.',
+                    confirmButtonColor: '#667eea'
+                });
+            }
+        });
+
+        // Check for remembered login
+        window.addEventListener('load', function() {
+            const rememberMe = localStorage.getItem('rememberMe');
+            if (rememberMe === 'true') {
+                const token = localStorage.getItem('token');
+                if (token) {
+                    window.location.href = 'dashboard.html';
+                }
+            }
+        });
+
+        // Handle forgot password
+        document.querySelector('.forgot-password').addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const { value: email } = await Swal.fire({
+                title: 'Password Recovery',
+                input: 'email',
+                inputLabel: 'Enter your email address',
+                inputPlaceholder: 'Enter your email',
+                confirmButtonColor: '#667eea',
+                showCancelButton: true,
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'Please enter your email address!';
+                    }
+                }
+            });
+
+            if (email) {
+                // Here you can add the API call to handle password reset
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Reset Link Sent!',
+                    text: 'Please check your email for password reset instructions.',
+                    confirmButtonColor: '#667eea'
+                });
+            }
         });
     </script>
 </body>

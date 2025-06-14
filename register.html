@@ -8,6 +8,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Add Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Add Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Add your custom CSS -->
     <link rel="stylesheet" href="asset/style.css">
     <style>
@@ -271,6 +273,63 @@
                 margin-top: 60px;
             }
         }
+
+        /* Loader Styles */
+        .loader-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid #9b59b6;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .btn.loading i {
+            display: none;
+        }
+
+        .btn.loading::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            border-top: 2px solid transparent;
+            animation: spin 1s linear infinite;
+        }
     </style>
 </head>
 <body>
@@ -296,6 +355,11 @@
     </header> -->
 
     <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Add Loader Container -->
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+
         <h1 class="title" data-aos="fade-down" data-aos-delay="200">Create Account</h1>
         <form id="registerForm" onsubmit="return validateForm()">
             <div class="form-row" data-aos="fade-right" data-aos-delay="400">
@@ -321,6 +385,14 @@
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" class="input-field" placeholder="Enter your phone number" required>
                     <i class="fas fa-phone"></i>
+                </div>
+            </div>
+
+            <div class="form-row" data-aos="fade-right" data-aos-delay="700">
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input type="date" id="dateOfBirth" class="input-field" required>
+                    <i class="fas fa-calendar-alt"></i>
                 </div>
             </div>
 
@@ -392,11 +464,25 @@
             const confirmPassword = document.getElementById('confirm-password').value;
             const phone = document.getElementById('phone').value;
             const username = document.getElementById('username').value;
+            const dateOfBirth = document.getElementById('dateOfBirth').value;
             const termsCheckbox = document.getElementById('terms');
             
             // Terms acceptance validation
             if (!termsCheckbox.checked) {
                 alert("Please accept the Terms of Service and Privacy Policy to continue.");
+                return false;
+            }
+
+            // Date of Birth validation
+            const today = new Date();
+            const birthDate = new Date(dateOfBirth);
+            const age = today.getFullYear() - birthDate.getFullYear();
+            if (!dateOfBirth) {
+                alert("Please enter your date of birth!");
+                return false;
+            }
+            if (age < 18) {
+                alert("You must be at least 18 years old to register!");
                 return false;
             }
 
@@ -424,7 +510,89 @@
                 return false;
             }
 
-            return true;
+            // If all validations pass, submit the form
+            handleRegistration();
+            return false; // Prevent default form submission
+        }
+
+        async function handleRegistration() {
+            const registerBtn = document.querySelector('.btn');
+            const loaderContainer = document.querySelector('.loader-container');
+            
+            // Show loading state
+            registerBtn.classList.add('loading');
+            loaderContainer.style.display = 'flex';
+
+            const formData = {
+                fullName: document.getElementById('fullname').value,
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                dateOfBirth: document.getElementById('dateOfBirth').value,
+                phoneNumber: document.getElementById('phone').value,
+                state: document.getElementById('state').value,
+                city: document.getElementById('city').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirm-password').value,
+                termsAccepted: document.getElementById('terms').checked
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                // Hide loading state
+                registerBtn.classList.remove('loading');
+                loaderContainer.style.display = 'none';
+
+                if (response.ok) {
+                    // Store the token in localStorage
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    // Show success message with Sweet Alert
+                    await Swal.fire({
+                        icon: 'success',
+                        title: 'Registration Successful!',
+                        text: 'Welcome to DeDoc Health System',
+                        confirmButtonColor: '#9b59b6',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+
+                    // Redirect to dashboard
+                    window.location.href = 'dashboard.html';
+                } else {
+                    // Show error message with Sweet Alert
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Registration Failed',
+                        text: data.message || 'Please try again.',
+                        confirmButtonColor: '#9b59b6'
+                    });
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                
+                // Hide loading state
+                registerBtn.classList.remove('loading');
+                loaderContainer.style.display = 'none';
+
+                // Show error message with Sweet Alert
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Connection Error',
+                    text: 'Unable to connect to the server. Please try again later.',
+                    confirmButtonColor: '#9b59b6'
+                });
+            }
         }
 
         // Format phone number as user types
