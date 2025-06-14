@@ -6,6 +6,8 @@
     <title>DeDoc - Register</title>
     <!-- Add AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -61,6 +63,7 @@
 
         .form-group {
             flex: 1;
+            position: relative;
         }
 
         label {
@@ -72,7 +75,7 @@
 
         .input-field {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px 15px 12px 40px;
             border: 1px solid #ddd;
             border-radius: 6px;
             outline: none;
@@ -82,6 +85,18 @@
         .input-field:focus {
             border-color: #9b59b6;
             box-shadow: 0 0 8px rgba(155, 89, 182, 0.2);
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 15px;
+            top: 40px;
+            color: #999;
+            transition: all 0.3s ease;
+        }
+
+        .form-group .input-field:focus + i {
+            color: #9b59b6;
         }
 
         .btn {
@@ -136,10 +151,12 @@
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
                     <input type="text" id="fullname" class="input-field" placeholder="Enter your full name" required>
+                    <i class="fas fa-user"></i>
                 </div>
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" class="input-field" placeholder="Choose a username" required>
+                    <i class="fas fa-user-circle"></i>
                 </div>
             </div>
 
@@ -147,10 +164,12 @@
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" class="input-field" placeholder="Enter your email" required>
+                    <i class="fas fa-envelope"></i>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" class="input-field" placeholder="Enter your phone number" required>
+                    <i class="fas fa-phone"></i>
                 </div>
             </div>
 
@@ -158,10 +177,12 @@
                 <div class="form-group">
                     <label for="state">State</label>
                     <input type="text" id="state" class="input-field" placeholder="Enter your state" required>
+                    <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
                     <input type="text" id="city" class="input-field" placeholder="Enter your city" required>
+                    <i class="fas fa-city"></i>
                 </div>
             </div>
 
@@ -169,17 +190,21 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" class="input-field" placeholder="Create a password" required>
+                    <i class="fas fa-lock"></i>
                 </div>
                 <div class="form-group">
                     <label for="confirm-password">Confirm Password</label>
                     <input type="password" id="confirm-password" class="input-field" placeholder="Confirm your password" required>
+                    <i class="fas fa-lock"></i>
                 </div>
             </div>
 
-            <button type="submit" class="btn" data-aos="zoom-in" data-aos-delay="1200">Register</button>
+            <button type="submit" class="btn" data-aos="zoom-in" data-aos-delay="1200">
+                <i class="fas fa-user-plus"></i> Register
+            </button>
 
             <div class="login-link" data-aos="fade-up" data-aos-delay="1400">
-                Already have an account? <a href="login.html">Login here</a>
+                Already have an account? <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login here</a>
             </div>
         </form>
     </div>
