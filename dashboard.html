@@ -208,7 +208,10 @@
             margin: 20px 0;
             color: white;
             text-decoration: none;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
         }
@@ -242,7 +245,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: inline-block;
-            margin: 10px 0;
+            margin: 10px auto;
         }
 
         .activate-btn:hover {
@@ -256,7 +259,7 @@
             background: linear-gradient(135deg, #4a90e2, #357abd);
             color: white;
             border: 2px solid transparent;
-            margin-top: 20px;
+            margin: 20px auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -581,78 +584,221 @@
             z-index: 999;
         }
 
-        /* Premium Activation Styles */
-        .premium-activation {
-            background: linear-gradient(135deg, #6366f1, #4f46e5);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            color: white;
-            text-decoration: none;
-            display: block;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
+        /* Profile Modal Styles */
+        .profile-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        .premium-activation:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
-        }
-
-        .premium-activation h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .premium-activation p {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .activate-btn {
+        .profile-content {
             background: white;
-            color: #4f46e5;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-header h2 {
+            color: var(--dark-color);
+            margin: 0;
+        }
+
+        .close-profile {
+            background: none;
             border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
+            font-size: 28px;
+            color: #666;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+
+        .close-profile:hover {
+            color: var(--danger-color);
+        }
+
+        .profile-body {
+            padding: 30px;
+        }
+
+        .profile-avatar {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-avatar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+        }
+
+        .avatar-upload {
+            margin-top: 15px;
+        }
+
+        .upload-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .profile-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .profile-info-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .profile-info-section h3 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .info-group {
+            margin-bottom: 15px;
+        }
+
+        .info-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .info-group input,
+        .info-group select,
+        .info-group textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .info-group input:focus,
+        .info-group select:focus,
+        .info-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+        }
+
+        .info-group input[disabled] {
+            background: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+        .info-group textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        .profile-actions {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .save-profile-btn,
+        .cancel-profile-btn {
+            padding: 10px 25px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            margin: 10px 0;
         }
 
-        .activate-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            background: #f8f9fa;
-        }
-
-        /* Meet Your Doctor Button Styles */
-        .activate-btn[onclick*="ai_doc_dashboard"] {
-            background: linear-gradient(135deg, #4a90e2, #357abd);
+        .save-profile-btn {
+            background: var(--primary-color);
             color: white;
-            border: 2px solid transparent;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: fit-content;
+            border: none;
         }
 
-        .activate-btn[onclick*="ai_doc_dashboard"]:hover {
-            background: linear-gradient(135deg, #357abd, #2c6aa0);
-            border-color: #4a90e2;
+        .save-profile-btn:hover {
+            background: var(--secondary-color);
         }
 
-        .activate-btn[onclick*="ai_doc_dashboard"]::before {
-            content: "👨‍⚕️";
-            font-size: 1.2rem;
+        .cancel-profile-btn {
+            background: white;
+            color: var(--dark-color);
+            border: 1px solid #ddd;
+        }
+
+        .cancel-profile-btn:hover {
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 768px) {
+            .profile-content {
+                width: 95%;
+                margin: 10px auto;
+            }
+
+            .profile-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-actions {
+                flex-direction: column;
+            }
+
+            .save-profile-btn,
+            .cancel-profile-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -696,7 +842,7 @@
         <div class="menu-section">
             <h3 class="menu-title">Settings</h3>
             <ul class="menu-items">
-                <li><a href="#"><i class="fas fa-user-circle"></i> Profile</a></li>
+                <li><a href="#" id="profileLink"><i class="fas fa-user-circle"></i> Profile</a></li>
                 <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
                 <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
@@ -805,6 +951,115 @@
         </a>
         <!-- the button will show if the user is a premium user -->
         <button class="activate-btn" onclick="window.location.href='users/ai_doc_dashboard.html'">Meet Your Doctor</button>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="profile-modal">
+        <div class="profile-content" data-aos="fade-up">
+            <div class="profile-header">
+                <h2>Profile Information</h2>
+                <button class="close-profile">&times;</button>
+            </div>
+            <div class="profile-body">
+                <div class="profile-avatar">
+                    <img src="https://via.placeholder.com/150" alt="User Profile" id="profileImage">
+                    <div class="avatar-upload">
+                        <label for="avatarInput" class="upload-btn">
+                            <i class="fas fa-camera"></i>
+                            Change Photo
+                        </label>
+                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+                <div class="profile-info-grid">
+                    <div class="profile-info-section">
+                        <h3>Personal Information</h3>
+                        <div class="info-group">
+                            <label>Full Name</label>
+                            <input type="text" value="John Doe" id="fullName">
+                        </div>
+                        <div class="info-group">
+                            <label>Email</label>
+                            <input type="email" value="john.doe@example.com" id="email">
+                        </div>
+                        <div class="info-group">
+                            <label>Phone</label>
+                            <input type="tel" value="+1 234 567 8900" id="phone">
+                        </div>
+                        <div class="info-group">
+                            <label>Date of Birth</label>
+                            <input type="date" value="1990-01-01" id="dob">
+                        </div>
+                    </div>
+                    <div class="profile-info-section">
+                        <h3>Medical Information</h3>
+                        <div class="info-group">
+                            <label>Blood Type</label>
+                            <select id="bloodType">
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+" selected>O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                        <div class="info-group">
+                            <label>Height (cm)</label>
+                            <input type="number" value="175" id="height">
+                        </div>
+                        <div class="info-group">
+                            <label>Weight (kg)</label>
+                            <input type="number" value="70" id="weight">
+                        </div>
+                        <div class="info-group">
+                            <label>Allergies</label>
+                            <textarea id="allergies" placeholder="List any allergies...">None</textarea>
+                        </div>
+                        <div class="info-group">
+                            <label>Date of Birth    </label>
+                            <input type="date" value="1990-01-01" id="dob">
+                        </div>
+                    </div>
+                    <div class="profile-info-section">
+                        <h3>Emergency Contact</h3>
+                        <div class="info-group">
+                            <label>Contact Name</label>
+                            <input type="text" value="Jane Doe" id="emergencyName">
+                        </div>
+                        <div class="info-group">
+                            <label>Relationship</label>
+                            <input type="text" value="Spouse" id="emergencyRelation">
+                        </div>
+                        <div class="info-group">
+                            <label>Contact Phone</label>
+                            <input type="tel" value="+1 234 567 8901" id="emergencyPhone">
+                        </div>
+                    </div>
+                    <div class="profile-info-section">
+                        <h3>Account Information</h3>
+                        <div class="info-group">
+                            <label>Member Since</label>
+                            <input type="text" value="January 2024" disabled>
+                        </div>
+                        <div class="info-group">
+                            <label>Account Type</label>
+                            <input type="text" value="Premium" disabled>
+                        </div>
+                        <div class="info-group">
+                            <label>Subscription Status</label>
+                            <input type="text" value="Active" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="save-profile-btn">Save Changes</button>
+                    <button class="cancel-profile-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
@@ -948,22 +1203,121 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadHealthTips();
             loadDoctorSpeeches();
-            updatePremiumElements(); // Check premium status on page load
+            updatePremiumElements();
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+                document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleSidebar);
+            sidebarOverlay.addEventListener('click', toggleSidebar);
+
+            // Profile Modal Functionality
+            const profileModal = document.getElementById('profileModal');
+            const profileLink = document.getElementById('profileLink');
+            const closeProfile = document.querySelector('.close-profile');
+            const saveProfileBtn = document.querySelector('.save-profile-btn');
+            const cancelProfileBtn = document.querySelector('.cancel-profile-btn');
+            const avatarInput = document.getElementById('avatarInput');
+            const profileImage = document.getElementById('profileImage');
+
+            // Debug check for elements
+            console.log('Profile Modal:', profileModal);
+            console.log('Profile Link:', profileLink);
+
+            // Open profile modal
+            if (profileLink) {
+                profileLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    console.log('Profile link clicked');
+                    if (profileModal) {
+                        profileModal.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            }
+
+            // Close profile modal
+            function closeProfileModal() {
+                if (profileModal) {
+                    profileModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (closeProfile) {
+                closeProfile.addEventListener('click', closeProfileModal);
+            }
+            
+            if (cancelProfileBtn) {
+                cancelProfileBtn.addEventListener('click', closeProfileModal);
+            }
+
+            // Close modal when clicking outside
+            if (profileModal) {
+                profileModal.addEventListener('click', (e) => {
+                    if (e.target === profileModal) {
+                        closeProfileModal();
+                    }
+                });
+            }
+
+            // Handle profile image upload
+            if (avatarInput && profileImage) {
+                avatarInput.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            profileImage.src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+
+            // Handle save profile
+            if (saveProfileBtn) {
+                saveProfileBtn.addEventListener('click', () => {
+                    const formData = {
+                        fullName: document.getElementById('fullName')?.value,
+                        email: document.getElementById('email')?.value,
+                        phone: document.getElementById('phone')?.value,
+                        dob: document.getElementById('dob')?.value,
+                        bloodType: document.getElementById('bloodType')?.value,
+                        height: document.getElementById('height')?.value,
+                        weight: document.getElementById('weight')?.value,
+                        allergies: document.getElementById('allergies')?.value,
+                        emergencyName: document.getElementById('emergencyName')?.value,
+                        emergencyRelation: document.getElementById('emergencyRelation')?.value,
+                        emergencyPhone: document.getElementById('emergencyPhone')?.value
+                    };
+
+                    console.log('Profile data to be saved:', formData);
+                    alert('Profile updated successfully!');
+                    closeProfileModal();
+                });
+            }
+
+            // Form validation
+            const inputs = document.querySelectorAll('.info-group input, .info-group select, .info-group textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    if (input.value.trim() === '') {
+                        input.style.borderColor = '#e74c3c';
+                    } else {
+                        input.style.borderColor = '#ddd';
+                    }
+                });
+            });
         });
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-        function toggleSidebar() {
-            sidebar.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
-        }
-
-        mobileMenuBtn.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
     </script>
 </body>
 </html>
