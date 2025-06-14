@@ -1,0 +1,212 @@
+[
+    {
+      "icon": "fas fa-apple-alt",
+      "category": "Nutrition",
+      "Header": "Eat More Whole Foods",
+      "Content": "Prioritize fruits, vegetables, whole grains, and lean proteins over processed foods."
+    },
+    {
+      "icon": "fas fa-water",
+      "category": "Nutrition",
+      "Header": "Stay Hydrated",
+      "Content": "Drink at least 8 glasses of water daily to support metabolism and detoxification."
+    },
+    {
+      "icon": "fas fa-utensils",
+      "category": "Nutrition",
+      "Header": "Control Portion Sizes",
+      "Content": "Use smaller plates to avoid overeating and manage calorie intake."
+    },
+    {
+      "icon": "fas fa-leaf",
+      "category": "Nutrition",
+      "Header": "Add Greens to Every Meal",
+      "Content": "Spinach, kale, or broccoli boost fiber, vitamins, and minerals."
+    },
+    {
+      "icon": "fas fa-seedling",
+      "category": "Nutrition",
+      "Header": "Choose Healthy Fats",
+      "Content": "Avocados, nuts, and olive oil support heart health."
+    },
+    {
+      "icon": "fas fa-running",
+      "category": "Fitness",
+      "Header": "Walk Daily",
+      "Content": "Aim for 10,000 steps a day to improve cardiovascular health."
+    },
+    {
+      "icon": "fas fa-dumbbell",
+      "category": "Fitness",
+      "Header": "Strength Training",
+      "Content": "Lift weights 2-3 times weekly to build muscle and bone density."
+    },
+    {
+      "icon": "fas fa-heartbeat",
+      "category": "Fitness",
+      "Header": "Cardio Workouts",
+      "Content": "Run, swim, or cycle for 30 minutes to strengthen your heart."
+    },
+    {
+      "icon": "fas fa-spa",
+      "category": "Fitness",
+      "Header": "Stretch Regularly",
+      "Content": "Improve flexibility and reduce injury risk with daily stretching."
+    },
+    {
+      "icon": "fas fa-medal",
+      "category": "Fitness",
+      "Header": "Set Fitness Goals",
+      "Content": "Track progress to stay motivated (e.g., run a 5K)."
+    },
+    {
+      "icon": "fas fa-brain",
+      "category": "Mental Health",
+      "Header": "Practice Gratitude",
+      "Content": "Write down 3 things you're grateful for daily to boost positivity."
+    },
+    {
+      "icon": "fas fa-yin-yang",
+      "category": "Mental Health",
+      "Header": "Meditate Daily",
+      "Content": "Even 5 minutes of mindfulness reduces stress and anxiety."
+    },
+    {
+      "icon": "fas fa-book",
+      "category": "Mental Health",
+      "Header": "Limit Screen Time",
+      "Content": "Reduce blue light exposure before bed for better sleep."
+    },
+    {
+      "icon": "fas fa-laugh",
+      "category": "Mental Health",
+      "Header": "Laugh Often",
+      "Content": "Laughter lowers stress hormones and strengthens immunity."
+    },
+    {
+      "icon": "fas fa-hands-helping",
+      "category": "Mental Health",
+      "Header": "Connect Socially",
+      "Content": "Strong relationships improve mental resilience."
+    },
+    {
+      "icon": "fas fa-moon",
+      "category": "Sleep",
+      "Header": "Stick to a Sleep Schedule",
+      "Content": "Go to bed and wake up at the same time daily."
+    },
+    {
+      "icon": "fas fa-bed",
+      "category": "Sleep",
+      "Header": "Create a Bedtime Routine",
+      "Content": "Read or take a warm bath to signal your body to wind down."
+    },
+    {
+      "icon": "fas fa-wifi",
+      "category": "Sleep",
+      "Header": "Avoid Screens Before Bed",
+      "Content": "Blue light disrupts melatonin production."
+    },
+    {
+      "icon": "fas fa-cloud",
+      "category": "Sleep",
+      "Header": "Optimize Your Sleep Environment",
+      "Content": "Keep your bedroom cool, dark, and quiet."
+    },
+    {
+      "icon": "fas fa-coffee",
+      "category": "Sleep",
+      "Header": "Limit Caffeine After Noon",
+      "Content": "Caffeine can stay in your system for 6+ hours."
+    },
+    {
+      "icon": "fas fa-soap",
+      "category": "Hygiene",
+      "Header": "Wash Hands Frequently",
+      "Content": "Prevents the spread of germs and infections."
+    },
+    {
+      "icon": "fas fa-teeth",
+      "category": "Hygiene",
+      "Header": "Brush Twice Daily",
+      "Content": "Prevents cavities and gum disease."
+    },
+    {
+      "icon": "fas fa-shower",
+      "category": "Hygiene",
+      "Header": "Shower After Sweating",
+      "Content": "Reduces bacteria and body odor."
+    },
+    {
+      "icon": "fas fa-hand-sparkles",
+      "category": "Hygiene",
+      "Header": "Sanitize High-Touch Surfaces",
+      "Content": "Clean doorknobs, phones, and keyboards regularly."
+    },
+    {
+      "icon": "fas fa-cut",
+      "category": "Hygiene",
+      "Header": "Trim Nails Weekly",
+      "Content": "Prevents dirt buildup and infections."
+    },
+    {
+      "icon": "fas fa-syringe",
+      "category": "Prevention",
+      "Header": "Get Vaccinated",
+      "Content": "Stay up-to-date on flu shots and other immunizations."
+    },
+    {
+      "icon": "fas fa-head-side-mask",
+      "category": "Prevention",
+      "Header": "Wear Masks in Crowds",
+      "Content": "Reduces risk of airborne illnesses."
+    },
+    {
+      "icon": "fas fa-thermometer",
+      "category": "Prevention",
+      "Header": "Check Blood Pressure",
+      "Content": "Monitor regularly to prevent hypertension."
+    },
+    {
+      "icon": "fas fa-procedures",
+      "category": "Prevention",
+      "Header": "Schedule Annual Checkups",
+      "Content": "Early detection saves lives."
+    },
+    {
+      "icon": "fas fa-sun",
+      "category": "Prevention",
+      "Header": "Use Sunscreen Daily",
+      "Content": "SPF 30+ prevents skin cancer and aging."
+    },
+    {
+      "icon": "fas fa-smile",
+      "category": "General Wellness",
+      "Header": "Practice Deep Breathing",
+      "Content": "Reduces stress and improves oxygen flow."
+    },
+    {
+      "icon": "fas fa-hiking",
+      "category": "General Wellness",
+      "Header": "Spend Time in Nature",
+      "Content": "Boosts mood and reduces cortisol levels."
+    },
+    {
+      "icon": "fas fa-heart",
+      "category": "General Wellness",
+      "Header": "Limit Alcohol",
+      "Content": "Stick to 1 drink/day for women, 2 for men."
+    },
+    {
+      "icon": "fas fa-ban",
+      "category": "General Wellness",
+      "Header": "Avoid Smoking",
+      "Content": "Increases risk of lung disease and cancer."
+    },
+    {
+      "icon": "fas fa-balance-scale",
+      "category": "General Wellness",
+      "Header": "Maintain a Healthy Weight",
+      "Content": "Reduces risk of diabetes and heart disease."
+    }
+  ]

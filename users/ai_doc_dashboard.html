@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeDoc Premium Features - AI Doctor Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #5C6BC0;
+            --accent-color: #FF5722;
+            --success-color: #2ECC71;
+            --dark-color: #2C3E50;
+            --light-color: #ECF0F1;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--gradient-primary);
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .feature-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .feature-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .feature-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 1rem;
+            }
+
+            .dashboard-header {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .dashboard-header h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header" data-aos="fade-down">
+            <h1>Premium Features Dashboard</h1>
+            <p>Unlock the full potential of DeDoc with our premium features designed to enhance your healthcare experience</p>
+            <button class="activate-btn" style="margin-top: 10px; background-color: #4A90E2; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;"  onclick="window.location.href='../dashboard.html'">Back to Dashboard</button>
+        </header>
+
+        <div class="features-grid">
+            <!-- AI Consultation -->
+            <div class="feature-card" data-aos="fade-up">
+                <span class="premium-badge">Premium</span>
+                <div class="feature-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h2 class="feature-title">Doctor Consultation</h2>
+                <p class="feature-description">Get personalized health advice and preliminary diagnoses through our advanced AI system.</p>
+                <a href="doc_John.html" class="feature-link">
+                    Start Consultation <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Health Tracking -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <span class="premium-badge">Premium</span>
+                <div class="feature-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h2 class="feature-title">Therapist Consultation</h2>
+                <p class="feature-description">Monitor your mental health and get personalized advice from our experienced AI powered therapists.</p>
+                <a href="therapist_alice.html" class="feature-link">
+                    Start Consultation <i cllass="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Medical Records -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <span class="premium-badge">Premium</span>
+                <div class="feature-icon">
+                    <i class="fas fa-file-medical"></i>
+                </div>
+                <h2 class="feature-title">Medical Records</h2>
+                <p class="feature-description">Securely store and access your medical history, prescriptions, and test results.</p>
+                <a href="medical_records.html" class="feature-link">
+                    Access Records <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Specialist Consultation -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <span class="premium-badge">Premium</span>
+                <div class="feature-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h2 class="feature-title">Specialist Consultation</h2>
+                <p class="feature-description">Connect with specialized healthcare professionals for expert medical advice.</p>
+                <a href="specialist_consultation.html" class="feature-link">
+                    Find Specialists <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Health Reports -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <span class="premium-badge">Premium</span>
+                <div class="feature-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h2 class="feature-title">Health Reports</h2>
+                <p class="feature-description">Generate comprehensive health reports and get personalized health recommendations.</p>
+                <a href="health_reports.html" class="feature-link">
+                    View Reports <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Emergency Support -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                <span class="premium-badge">Premium</span>
+                <div class="feature-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <h2 class="feature-title">24/7 Emergency Support</h2>
+                <p class="feature-description">Access round-the-clock emergency support and quick response medical assistance.</p>
+                <a href="emergency_support.html" class="feature-link">
+                    Emergency Services <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+    </script>
+</body>
+</html>

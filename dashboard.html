@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeDoc - Patient Dashboard</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #9b59b6;
+            --success-color: #2ecc71;
+            --warning-color: #f1c40f;
+            --danger-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --sidebar-width: 250px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f6fa;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: #fff;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-header i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .sidebar-header h2 {
+            font-size: 20px;
+            color: var(--dark-color);
+        }
+
+        .menu-section {
+            margin-bottom: 20px;
+        }
+
+        .menu-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .menu-items {
+            list-style: none;
+        }
+
+        .menu-items li {
+            margin-bottom: 5px;
+        }
+
+        .menu-items a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            color: var(--dark-color);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-items a:hover, .menu-items a.active {
+            background: rgba(74, 144, 226, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 20px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f5f6fa;
+            padding: 8px 15px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .notification-badge {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-badge i {
+            font-size: 20px;
+            color: #666;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger-color);
+            color: white;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 10px;
+        }
+
+        /* Health Card Styles */
+        .health-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .health-card h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .health-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .health-stat {
+            text-align: center;
+        }
+
+        .health-stat h3 {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .health-stat p {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .user-welcome {
+            display: flex;
+        }
+
+        /* Premium Activation Styles */
+        .premium-activation {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
+        }
+
+        .premium-activation:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .premium-activation h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .premium-activation p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .activate-btn {
+            background: white;
+            color: #4f46e5;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .activate-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: #f8f9fa;
+        }
+
+        /* Meet Your Doctor Button Styles */
+        .activate-btn[onclick*="ai_doc_dashboard"] {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            border: 2px solid transparent;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: fit-content;
+        }
+
+        .activate-btn[onclick*="ai_doc_dashboard"]:hover {
+            background: linear-gradient(135deg, #357abd, #2c6aa0);
+            border-color: #4a90e2;
+        }
+
+        .activate-btn[onclick*="ai_doc_dashboard"]::before {
+            content: "👨‍⚕️";
+            font-size: 1.2rem;
+        }
+
+        .user-welcome {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .account-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .subscription-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .subscription-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .subscription-info strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .status-active {
+            color: #2ecc71;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-active::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+        }
+
+        /* Appointment Card Styles */
+        .appointment-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .appointment-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(74, 144, 226, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .appointment-details {
+            flex: 1;
+        }
+
+        .appointment-details h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .appointment-details p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .appointment-status {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-upcoming {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--success-color);
+        }
+
+        .status-completed {
+            background: rgba(149, 165, 166, 0.1);
+            color: #95a5a6;
+        }
+
+        /* Medication Reminder Styles */
+        .medication-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .medication-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .medication-list {
+            list-style: none;
+        }
+
+        .medication-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .medication-item:last-child {
+            border-bottom: none;
+        }
+
+        .medication-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(155, 89, 182, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            margin-right: 15px;
+        }
+
+        .medication-info {
+            flex: 1;
+        }
+
+        .medication-info h4 {
+            font-size: 15px;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .medication-info p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .medication-time {
+            background: rgba(74, 144, 226, 0.1);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        /* Recent Activities */
+        .activities-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(74, 144, 226, 0.1);
+            color: var(--primary-color);
+        }
+
+        .activity-details h4 {
+            font-size: 14px;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .activity-details p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: #888;
+        }
+
+        @media (max-width: 1024px) {
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex !important;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                position: fixed;
+                z-index: 1000;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding-top: 70px;
+            }
+
+            .top-bar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 998;
+                border-radius: 0;
+                padding-left: 80px;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 9999;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        /* Overlay for mobile sidebar */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        /* Premium Activation Styles */
+        .premium-activation {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
+        }
+
+        .premium-activation:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .premium-activation h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .premium-activation p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .activate-btn {
+            background: white;
+            color: #4f46e5;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .activate-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: #f8f9fa;
+        }
+
+        /* Meet Your Doctor Button Styles */
+        .activate-btn[onclick*="ai_doc_dashboard"] {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            border: 2px solid transparent;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: fit-content;
+        }
+
+        .activate-btn[onclick*="ai_doc_dashboard"]:hover {
+            background: linear-gradient(135deg, #357abd, #2c6aa0);
+            border-color: #4a90e2;
+        }
+
+        .activate-btn[onclick*="ai_doc_dashboard"]::before {
+            content: "👨‍⚕️";
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-heartbeat"></i>
+            <h2>DeDoc Health</h2>
+        </div>
+
+        <div class="menu-section">
+            <h3 class="menu-title">Main Menu</h3>
+            <ul class="menu-items">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="payment.html"><i class="fas fa-calendar-alt"></i> Payment</a></li>
+                <li><a href="#"><i class="fas fa-pills"></i> Medications</a></li>
+                <li><a href="#"><i class="fas fa-file-medical"></i> Medical Records</a></li>
+                <li><a href="#"><i class="fas fa-comments"></i> Messages</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h3 class="menu-title">Health Tools</h3>
+            <ul class="menu-items">
+                <li><a href="#"><i class="fas fa-heart"></i> Symptom Checker</a></li>
+                <li><a href="#"><i class="fas fa-notes-medical"></i> Health Journal</a></li>
+                <li><a href="#"><i class="fas fa-hospital"></i> Find Doctors</a></li>
+                <li><a href="#"><i class="fas fa-ambulance"></i> Emergency Info</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h3 class="menu-title">Settings</h3>
+            <ul class="menu-items">
+                <li><a href="#"><i class="fas fa-user-circle"></i> Profile</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search symptoms, doctors, or medications...">
+            </div>
+            <div class="user-profile">
+                <div class="notification-badge">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">2</span>
+                </div>
+                <div class="notification-badge">
+                    <i class="fas fa-envelope"></i>
+                    <span class="badge">1</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="User" style="border-radius: 50%;">
+            </div>
+        </div>
+
+        <!-- Health Overview Card -->
+        <div class="health-card" data-aos="fade-up">
+            <div class="user-welcome">
+                <h2>Welcome back, <span id="username">John!</span></h2>
+                <span class="account-badge">Premium Account</span>
+            </div>
+            <div class="subscription-info">
+                <p>Last Payment: <strong>March 15, 2024</strong></p>
+                <p>Payment Due: <strong>April 15, 2024</strong></p>
+            </div>
+            <div class="health-info">
+                <div class="health-stat">
+                    <h3>Account Status</h3>
+                    <p class="status-active">Active</p>
+                </div>
+                <div class="health-stat">
+                    <h3>Plan Type</h3>
+                    <p>Premium</p>
+                </div>
+                <div class="health-stat">
+                    <h3>Member Since</h3>
+                    <p>Jan 2024</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health Tips -->
+        <h3 class="section-title" data-aos="fade-up">Health Tips</h3>
+        <div id="healthTipsContainer">
+            <!-- Tips will be dynamically loaded here -->
+        </div>
+
+        <!-- Doctor's Daily Speech -->
+        <div class="medication-card" data-aos="fade-up">
+            <div class="medication-header">
+                <h3>Doctor's Daily Speech</h3>
+                <a href="#" style="color: var(--primary-color); text-decoration: none;">View All</a>
+            </div>
+            <ul class="medication-list" id="doctorSpeechContainer">
+                <!-- Speeches will be dynamically loaded here -->
+            </ul>
+        </div>
+
+        <!-- Recent Activities -->
+        <!-- <div class="activities-section" data-aos="fade-up">
+            <div class="chart-header">
+                <h3 class="chart-title">Recent Activities</h3>
+                <a href="#" style="color: var(--primary-color); text-decoration: none;">View All</a>
+            </div>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <div class="activity-details">
+                        <h4>Lab Results Available</h4>
+                        <p>Blood work results from Dr. Wilson</p>
+                    </div>
+                    <span class="activity-time">2 hours ago</span>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-icon" style="background: rgba(46, 204, 113, 0.1); color: var(--success-color);">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="activity-details">
+                        <h4>Appointment Confirmed</h4>
+                        <p>Dental check-up with Dr. Brown</p>
+                    </div>
+                    <span class="activity-time">Yesterday</span>
+                </li>
+            </ul>
+        </div> -->
+
+        <!-- activation of premium account -->
+        <a href="payment.html" class="premium-activation">
+            <h3>Activate Premium Account</h3>
+            <p>Activate your premium account to access all features and benefits.</p>
+            <button class="activate-btn">Activate Premium</button>
+        </a>
+        <!-- the button will show if the user is a premium user -->
+        <button class="activate-btn" onclick="window.location.href='users/ai_doc_dashboard.html'">Meet Your Doctor</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Function to check premium status and show/hide elements
+        function updatePremiumElements() {
+            // This should be replaced with your actual premium status check
+            const isPremiumUser = document.querySelector('.account-badge').textContent.includes('Premium');
+            
+            // Get the elements
+            const premiumActivation = document.querySelector('.premium-activation');
+            const meetDoctorBtn = document.querySelector('.activate-btn[onclick*="ai_doc_dashboard"]');
+            
+            if (isPremiumUser) {
+                // Hide premium activation and show meet doctor button
+                if (premiumActivation) premiumActivation.style.display = 'none';
+                if (meetDoctorBtn) meetDoctorBtn.style.display = 'flex';
+            } else {
+                // Show premium activation and hide meet doctor button
+                if (premiumActivation) premiumActivation.style.display = 'block';
+                if (meetDoctorBtn) meetDoctorBtn.style.display = 'none';
+            }
+        }
+
+        // Function to get random items from array
+        function getRandomItems(arr, count) {
+            const shuffled = [...arr].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        // Function to load and display health tips
+        async function loadHealthTips() {
+            const container = document.getElementById('healthTipsContainer');
+            try {
+                console.log('Fetching health tips...');
+                const response = await fetch('health_tips.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const tips = await response.json();
+                console.log('Loaded tips:', tips);
+                
+                if (!Array.isArray(tips) || tips.length === 0) {
+                    throw new Error('No health tips found in the data');
+                }
+
+                const randomTips = getRandomItems(tips, 3);
+                console.log('Selected random tips:', randomTips);
+                
+                container.innerHTML = randomTips.map(tip => `
+                    <div class="appointment-card" data-aos="fade-up">
+                        <div class="appointment-icon">
+                            <i class="${tip.icon}"></i>
+                        </div>
+                        <div class="appointment-details">
+                            <h3>${tip.Header}</h3>
+                            <p>${tip.Content}</p>
+                            <p class="tip-category">${tip.category}</p>
+                        </div>
+                        <span class="appointment-status status-upcoming">Daily Tip</span>
+                    </div>
+                `).join('');
+
+                // Refresh AOS for new elements
+                AOS.refresh();
+            } catch (error) {
+                console.error('Error loading health tips:', error);
+                container.innerHTML = `
+                    <div class="appointment-card" data-aos="fade-up">
+                        <div class="appointment-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="appointment-details">
+                            <h3>Unable to load health tips</h3>
+                            <p>Please try refreshing the page</p>
+                        </div>
+                        <span class="appointment-status status-upcoming">Error</span>
+                    </div>
+                `;
+            }
+        }
+
+        // Function to load and display doctor speeches
+        async function loadDoctorSpeeches() {
+            const container = document.getElementById('doctorSpeechContainer');
+            try {
+                console.log('Fetching doctor speeches...');
+                const response = await fetch('doctor_daily_speech.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const speeches = await response.json();
+                console.log('Loaded speeches:', speeches);
+                
+                if (!Array.isArray(speeches) || speeches.length === 0) {
+                    throw new Error('No speeches found in the data');
+                }
+
+                const randomSpeeches = getRandomItems(speeches, 2);
+                console.log('Selected random speeches:', randomSpeeches);
+                
+                container.innerHTML = randomSpeeches.map(speech => `
+                    <li class="medication-item">
+                        <div class="medication-icon">
+                            <i class="${speech.icon}"></i>
+                        </div>
+                        <div class="medication-info">
+                            <h4>${speech["Doc. Name"]}</h4>
+                            <p>"${speech.Content}"</p>
+                            <p class="tip-category">${speech.Header}</p>
+                        </div>
+                        <span class="medication-time">Today's Advice</span>
+                    </li>
+                `).join('');
+
+            } catch (error) {
+                console.error('Error loading doctor speeches:', error);
+                container.innerHTML = `
+                    <li class="medication-item">
+                        <div class="medication-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="medication-info">
+                            <h4>Unable to load doctor speeches</h4>
+                            <p>Please try refreshing the page</p>
+                        </div>
+                        <span class="medication-time">Error</span>
+                    </li>
+                `;
+            }
+        }
+
+        // Load health tips when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHealthTips();
+            loadDoctorSpeeches();
+            updatePremiumElements(); // Check premium status on page load
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+    </script>
+</body>
+</html>
