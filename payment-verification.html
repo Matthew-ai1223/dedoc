@@ -110,7 +110,7 @@
         <p id="statusMessage">Please wait while we verify your payment.</p>
         <div id="referenceNumber" class="reference"></div>
         <div id="errorDetails" class="error-details" style="display: none;"></div>
-        <a href="/dashboard.html" class="btn" id="dashboardBtn" style="display: none;">Go to Dashboard</a>
+        <a href="dashboard.html" class="btn" id="dashboardBtn" style="display: none;">Go to Dashboard</a>
         <a href="javascript:void(0)" class="retry-btn" id="retryBtn" style="display: none;" onclick="retryVerification()">Retry Verification</a>
     </div>
 
@@ -196,18 +196,20 @@
             .then(data => {
                 console.log('Verification response:', data);
                 if (data.status === 'success') {
-                    // Update subscription data in localStorage
-                    if (data.data && data.data.subscription) {
+                    // Use the subscription data returned from /verify
+                    const subscription = data.data.subscription;
+                    if (subscription) {
                         const userData = JSON.parse(localStorage.getItem('user') || '{}');
                         userData.subscription = {
-                            ...data.data.subscription,
-                            startDate: new Date(data.data.subscription.startDate),
-                            endDate: new Date(data.data.subscription.endDate)
+                            ...subscription,
+                            startDate: new Date(subscription.startDate),
+                            endDate: new Date(subscription.endDate),
+                            status: 'active' // Explicitly set status
                         };
                         localStorage.setItem('user', JSON.stringify(userData));
 
                         // Format the subscription end date for display
-                        const endDate = new Date(data.data.subscription.endDate);
+                        const endDate = new Date(subscription.endDate);
                         const formattedEndDate = endDate.toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',
@@ -218,29 +220,25 @@
 
                         updateUI('success', 'Payment Successful!', 
                             `Your payment has been verified and your subscription is now active.<br><br>
-                            <strong>Plan:</strong> ${data.data.subscription.plan.charAt(0).toUpperCase() + data.data.subscription.plan.slice(1)}<br>
+                            <strong>Plan:</strong> ${subscription.plan.charAt(0).toUpperCase() + subscription.plan.slice(1)}<br>
                             <strong>Valid until:</strong> ${formattedEndDate}`);
+
+                        // Add subscription check script
+                        const script = document.createElement('script');
+                        script.src = '/users/subscription_check.js';
+                        script.onload = () => {
+                            // Show dashboard button
+                            const dashboardBtn = document.getElementById('dashboardBtn');
+                            dashboardBtn.style.display = 'inline-block';
+                            dashboardBtn.addEventListener('click', async function(e) {
+                                e.preventDefault();
+                                window.location.href = '/users/ai_doc_dashboard.html';
+                            });
+                        };
+                        document.body.appendChild(script);
                     } else {
-                        updateUI('success', 'Payment Successful!', 
-                            'Your payment has been verified and your subscription is now active.');
+                        throw new Error('Invalid subscription data received');
                     }
-
-                    // Add subscription check script
-                    const script = document.createElement('script');
-                    script.src = '/users/subscription_check.js';
-                    document.body.appendChild(script);
-
-                    // Show dashboard button with subscription status
-                    const dashboardBtn = document.getElementById('dashboardBtn');
-                    dashboardBtn.style.display = 'inline-block';
-                    dashboardBtn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        // Check subscription before redirecting
-                        const subscription = JSON.parse(localStorage.getItem('user') || '{}').subscription;
-                        if (handleSubscriptionExpiration(subscription)) {
-                            window.location.href = '/dashboard.html';
-                        }
-                    });
                 } else {
                     throw new Error(data.message || 'Payment verification failed');
                 }

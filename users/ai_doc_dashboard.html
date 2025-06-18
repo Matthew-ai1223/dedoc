@@ -44,6 +44,7 @@
             border-radius: 15px;
             color: white;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .dashboard-header h1 {
@@ -147,6 +148,63 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
+        .subscription-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .subscription-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .subscription-status i {
+            color: #2ecc71;
+            font-size: 1.5rem;
+        }
+
+        .subscription-status span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .subscription-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .subscription-details p {
+            margin: 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .subscription-details p strong {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .subscription-details p:not(strong) {
+            color: white;
+            font-size: 1.1rem;
+        }
+
         @media (max-width: 768px) {
             .dashboard-container {
                 padding: 1rem;
@@ -169,6 +227,69 @@
             .feature-card {
                 padding: 1.5rem;
             }
+
+            .subscription-info {
+                padding: 15px;
+                margin-top: 15px;
+            }
+
+            .subscription-status {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+                margin-bottom: 12px;
+                padding-bottom: 8px;
+            }
+
+            .subscription-status i {
+                font-size: 1.8rem;
+            }
+
+            .subscription-status span {
+                font-size: 1.1rem;
+            }
+
+            .subscription-details {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .subscription-details p {
+                padding: 12px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            .subscription-details p strong {
+                font-size: 0.85rem;
+                margin-right: 10px;
+            }
+
+            .subscription-details p:not(strong) {
+                font-size: 1rem;
+                text-align: right;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .subscription-info {
+                padding: 12px;
+                margin-top: 12px;
+            }
+
+            .subscription-details p {
+                padding: 10px;
+            }
+
+            .subscription-details p strong {
+                font-size: 0.8rem;
+            }
+
+            .subscription-details p:not(strong) {
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -178,6 +299,7 @@
             <h1>Premium Features Dashboard</h1>
             <p>Unlock the full potential of DeDoc with our premium features designed to enhance your healthcare experience</p>
             <button class="activate-btn" style="margin-top: 10px; background-color: #4A90E2; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;"  onclick="window.location.href='../dashboard.html'">Back to Dashboard</button>
+            <div id="subscriptionInfo" class="subscription-info"></div>
         </header>
 
         <div class="features-grid">
@@ -261,8 +383,9 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="subscription_check.js"></script>
+    <script src="subscription_guard.js"></script>
     <script>
         AOS.init({
             duration: 800,
@@ -270,9 +393,13 @@
             once: true
         });
 
-        // Check subscription status when page loads
         document.addEventListener('DOMContentLoaded', async () => {
-            await updateSubscriptionUI();
+            // Initialize AOS
+            AOS.refresh();
+
+            // Check subscription status
+            const ok = await enforceSubscriptionOrRedirect();
+            if (!ok) return; // Block page if not subscribed
 
             // Add click handlers to premium features
             const premiumFeatures = document.querySelectorAll('.premium-feature');
@@ -282,8 +409,11 @@
                     const originalHref = link.getAttribute('href');
                     link.addEventListener('click', async (e) => {
                         e.preventDefault();
-                        if (await enforceSubscription()) {
+                        const hasAccess = await checkPageAccess(originalHref);
+                        if (hasAccess) {
                             window.location.href = originalHref;
+                        } else {
+                            await showAccessDenied();
                         }
                     });
                 }

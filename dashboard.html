@@ -944,11 +944,11 @@
         </div> -->
 
         <!-- activation of premium account -->
-        <a href="payment.html" class="premium-activation">
+        <!-- <a href="payment.html" class="premium-activation">
             <h3>Activate Premium Account</h3>
             <p>Activate your premium account to access all features and benefits.</p>
             <button class="activate-btn">Activate Premium</button>
-        </a>
+        </a> -->
         <!-- the button will show if the user is a premium user -->
         <button class="activate-btn" onclick="window.location.href='users/ai_doc_dashboard.html'">Meet Your Doctor</button>
     </div>
@@ -1099,16 +1099,16 @@
                     // Update UI with fresh data
                     updateUIWithUserData(freshUserData);
 
-                    // Fetch subscription and payment info
-                    const paymentResponse = await fetch('http://localhost:5000/api/payments/status', {
+                    // Fetch subscription status
+                    const subscriptionResponse = await fetch('http://localhost:5000/api/subscription/status', {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
                     });
 
-                    if (paymentResponse.ok) {
-                        const paymentData = await paymentResponse.json();
-                        updatePaymentInfo(paymentData);
+                    if (subscriptionResponse.ok) {
+                        const subscriptionData = await subscriptionResponse.json();
+                        updateSubscriptionInfo(subscriptionData);
                     }
                 }
             } catch (error) {
@@ -1130,7 +1130,7 @@
             }
             
             // Format and display member since date
-            if (userData.createdAt) {  // Using createdAt from the database
+            if (userData.createdAt) {
                 const regDate = new Date(userData.createdAt);
                 const formattedDate = regDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
                 
@@ -1146,40 +1146,78 @@
                     profileMemberSince.value = formattedDate;
                 }
             }
-            // Add more fields as needed
         }
 
-        // Update payment information in UI
-        function updatePaymentInfo(paymentData) {
-            // Update subscription info
-            const accountBadge = document.querySelector('.account-badge');
-            if (accountBadge) {
-                accountBadge.textContent = paymentData.subscription.plan ? `${paymentData.subscription.plan} Account` : 'Free Account';
+        // Update subscription information in UI
+        function updateSubscriptionInfo(subscriptionData) {
+            if (!subscriptionData || !subscriptionData.subscription) {
+                console.error('Invalid subscription data:', subscriptionData);
+                return;
             }
 
-            // Update payment dates
+            const subscription = subscriptionData.subscription;
+            console.log('Subscription data:', subscription); // Debug log
+
+            // Update account badge
+            const accountBadge = document.querySelector('.account-badge');
+            if (accountBadge) {
+                const planName = subscription.plan ? subscription.plan.charAt(0).toUpperCase() + subscription.plan.slice(1) : 'Free';
+                accountBadge.textContent = `${planName} Account`;
+            }
+
+            // Update subscription info
             const subscriptionInfo = document.querySelector('.subscription-info');
-            if (subscriptionInfo && paymentData.lastPayment) {
-                const lastPaymentDate = new Date(paymentData.lastPayment.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                const nextPaymentDate = new Date(paymentData.nextPaymentDue).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                
+            if (subscriptionInfo) {
+                let lastPaymentDate = 'No payments yet';
+                let nextPaymentDate = 'N/A';
+
+                // Format last payment date
+                if (subscription.lastPaymentDate) {
+                    const lastPayment = new Date(subscription.lastPaymentDate);
+                    lastPaymentDate = lastPayment.toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+                }
+
+                // Format next payment date (end date)
+                if (subscription.endDate) {
+                    const endDate = new Date(subscription.endDate);
+                    nextPaymentDate = endDate.toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+                }
+
+                // Add time remaining if available
+                let timeRemainingText = '';
+                if (subscription.timeRemaining) {
+                    const { days, hours, minutes } = subscription.timeRemaining;
+                    timeRemainingText = `<p>Time Remaining: <strong>${days}d ${hours}h ${minutes}m</strong></p>`;
+                }
+
                 subscriptionInfo.innerHTML = `
                     <p>Last Payment: <strong>${lastPaymentDate}</strong></p>
                     <p>Payment Due: <strong>${nextPaymentDate}</strong></p>
+                    ${timeRemainingText}
                 `;
             }
 
             // Update account status
             const statusActive = document.querySelector('.status-active');
             if (statusActive) {
-                statusActive.textContent = paymentData.subscription.status || 'Inactive';
-                statusActive.style.color = paymentData.subscription.status === 'active' ? '#2ecc71' : '#e74c3c';
+                const status = subscription.status || 'inactive';
+                statusActive.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+                statusActive.style.color = status === 'active' ? '#2ecc71' : '#e74c3c';
             }
 
             // Update plan type
             const planType = document.querySelector('.health-stat p:not(.status-active)');
             if (planType) {
-                planType.textContent = paymentData.subscription.plan || 'Free';
+                const planName = subscription.plan ? subscription.plan.charAt(0).toUpperCase() + subscription.plan.slice(1) : 'Free';
+                planType.textContent = planName;
             }
 
             // Show/hide premium activation button based on subscription status
@@ -1187,7 +1225,7 @@
             const meetDoctorBtn = document.querySelector('.activate-btn[onclick*="ai_doc_dashboard"]');
             
             if (premiumActivation && meetDoctorBtn) {
-                if (paymentData.subscription.status === 'active') {
+                if (subscription.status === 'active') {
                     premiumActivation.style.display = 'none';
                     meetDoctorBtn.style.display = 'flex';
                 } else {
