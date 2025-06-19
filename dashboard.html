@@ -873,33 +873,18 @@
         <!-- Health Overview Card -->
         <div class="health-card" data-aos="fade-up">
             <div class="user-welcome">
-<<<<<<< HEAD
-                <h2>Welcome back, <span id="username" style="color: black;"></span></h2>
-                <span class="account-badge">Free Account</span>
-=======
                 <h2>Welcome back, <span id="username">John!</span></h2>
                 <span class="account-badge">Premium Account</span>
             </div>
             <div class="subscription-info">
                 <p>Last Payment: <strong>March 15, 2024</strong></p>
                 <p>Payment Due: <strong>April 15, 2024</strong></p>
->>>>>>> 1b0e2bbafa927be25c6debcc1a0507b65d8aa824
             </div>
             <div class="health-info">
                 <div class="health-stat">
                     <h3>Account Status</h3>
                     <p class="status-active">Active</p>
                 </div>
-<<<<<<< HEAD
-                <!-- <div class="health-stat">
-                    <h3>Plan Type</h3>
-                    <p>Premium</p>
-                </div> -->
-                <!-- <div class="health-stat">
-                    <h3>Member Since</h3>
-                    <p id="createdAt"></p>
-                </div> -->
-=======
                 <div class="health-stat">
                     <h3>Plan Type</h3>
                     <p>Premium</p>
@@ -908,7 +893,6 @@
                     <h3>Member Since</h3>
                     <p id="createdAt">Jan 2024</p>
                 </div>
->>>>>>> 1b0e2bbafa927be25c6debcc1a0507b65d8aa824
             </div>
         </div>
 
@@ -1097,20 +1081,7 @@
             const userData = JSON.parse(localStorage.getItem('user'));
             
             // Update username in the welcome message
-<<<<<<< HEAD
-            document.getElementById('username').textContent = userData.username.split(' ')[0] + '!';
-
-            // Update member since date
-            if (userData.createdAt) {
-                const regDate = new Date(userData.createdAt);
-                const formattedDate = regDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-                document.getElementById(`createdAt`).textContent = formattedDate;
-            } else {
-                document.getElementById('createdAt').textContent = 'N/A';
-            }
-=======
             document.getElementById('username').textContent = userData.fullName.split(' ')[0] + '!';
->>>>>>> 1b0e2bbafa927be25c6debcc1a0507b65d8aa824
 
             try {
                 // Fetch fresh user data from the server

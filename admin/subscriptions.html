@@ -75,9 +75,14 @@
             <div class="col-md-9 col-lg-10 main-content">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2>Subscription Management</h2>
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPlanModal">
-                        <i class="fas fa-plus me-2"></i>Add New Plan
-                    </button>
+                    <div>
+                        <button class="btn btn-outline-secondary me-2" data-refresh="subscriptions" title="Refresh Data">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPlanModal">
+                            <i class="fas fa-plus me-2"></i>Add New Plan
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Subscription Stats -->
@@ -192,6 +197,7 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>SN</th>
                                 <th>Transaction ID</th>
                                 <th>User</th>
                                 <th>Plan</th>
@@ -263,72 +269,210 @@
         // Fetch subscription data
         async function fetchSubscriptionData() {
             try {
-                const response = await fetch(`${API_BASE_URL}/subscription/admin-data`);
+                // Show loading state
+                showLoadingState();
+                
+                const response = await fetch(`${API_BASE_URL}/subscription/admin-data`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${sessionStorage.getItem('adminToken') || ''}`
+                    }
+                });
                 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch subscription data');
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
                 const data = await response.json();
-                updateSubscriptionStats(data.stats);
-                updatePlanDistribution(data.planDistribution);
-                populateTransactions(data.recentTransactions);
+                
+                // Hide loading state
+                hideLoadingState();
+                
+                // Update all subscription data
+                updateSubscriptionStats(data.stats || {});
+                updatePlanDistribution(data.planDistribution || {});
+                populateTransactions(data.recentTransactions || []);
+                
             } catch (error) {
                 console.error('Error fetching subscription data:', error);
-                alert('Failed to load subscription data. Please try again later.');
+                hideLoadingState();
+                showErrorMessage('Failed to load subscription data. Please try again later.');
             }
         }
 
-        // Update subscription statistics
+        // Show loading state
+        function showLoadingState() {
+            const activeSubscriptionsElement = document.getElementById('activeSubscriptionsCount');
+            if (activeSubscriptionsElement) {
+                activeSubscriptionsElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            }
+        }
+
+        // Hide loading state
+        function hideLoadingState() {
+            const activeSubscriptionsElement = document.getElementById('activeSubscriptionsCount');
+            if (activeSubscriptionsElement && activeSubscriptionsElement.innerHTML.includes('fa-spinner')) {
+                activeSubscriptionsElement.textContent = '0';
+            }
+        }
+
+        // Show error message
+        function showErrorMessage(message) {
+            // Create a toast notification or alert
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-danger alert-dismissible fade show position-fixed';
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.body.appendChild(alertDiv);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.parentNode.removeChild(alertDiv);
+                }
+            }, 5000);
+        }
+
+        // Update subscription statistics with better error handling
         function updateSubscriptionStats(stats) {
-            document.querySelector('.plan-stats .col-md-3:nth-child(1) h3').textContent = `₦${stats.totalRevenue.toLocaleString()}`;
-            document.getElementById('activeSubscriptionsCount').textContent = stats.activeSubscriptions;
-            document.querySelector('.plan-stats .col-md-3:nth-child(3) h3').textContent = stats.totalUsers - stats.activeSubscriptions;
-            document.querySelector('.plan-stats .col-md-3:nth-child(4) h3').textContent = `₦${stats.averageRevenuePerUser.toFixed(2)}`;
+            try {
+                // Update Total Revenue
+                const totalRevenueElement = document.querySelector('.plan-stats .col-md-3:nth-child(1) h3');
+                if (totalRevenueElement && stats.totalRevenue !== undefined) {
+                    totalRevenueElement.textContent = `₦${Number(stats.totalRevenue).toLocaleString()}`;
+                }
+
+                // Note: Active Subscriptions count is now calculated from transactions data
+                // and updated in the populateTransactions function
+
+                // Update Churned Users (calculate based on total users minus active subscriptions)
+                const churnedUsersElement = document.querySelector('.plan-stats .col-md-3:nth-child(3) h3');
+                if (churnedUsersElement && stats.totalUsers !== undefined) {
+                    const activeSubscriptionsElement = document.getElementById('activeSubscriptionsCount');
+                    const activeCount = activeSubscriptionsElement ? parseInt(activeSubscriptionsElement.textContent.replace(/,/g, '')) : 0;
+                    const churnedUsers = Math.max(0, Number(stats.totalUsers) - activeCount);
+                    churnedUsersElement.textContent = churnedUsers.toLocaleString();
+                }
+
+                // Update Average Revenue per User
+                const avgRevenueElement = document.querySelector('.plan-stats .col-md-3:nth-child(4) h3');
+                if (avgRevenueElement && stats.averageRevenuePerUser !== undefined) {
+                    avgRevenueElement.textContent = `₦${Number(stats.averageRevenuePerUser).toFixed(2)}`;
+                }
+            } catch (error) {
+                console.error('Error updating subscription stats:', error);
+            }
         }
 
-        // Update plan distribution
+        // Update plan distribution with better error handling
         function updatePlanDistribution(planDistribution) {
-            // Update Basic Plan
-            const basicCount = planDistribution.basic || 0;
-            document.getElementById('basicSubscribers').textContent = `${basicCount} active subscribers`;
-            
-            // Update Standard Plan
-            const standardCount = planDistribution.standard || 0;
-            document.getElementById('standardSubscribers').textContent = `${standardCount} active subscribers`;
-            
-            // Update Premium Plan
-            const premiumCount = planDistribution.premium || 0;
-            document.getElementById('premiumSubscribers').textContent = `${premiumCount} active subscribers`;
-            
-            // Update Pro Plan
-            const proCount = planDistribution.pro || 0;
-            document.getElementById('proSubscribers').textContent = `${proCount} active subscribers`;
+            try {
+                // Update Basic Plan
+                const basicElement = document.getElementById('basicSubscribers');
+                if (basicElement) {
+                    const basicCount = Number(planDistribution.basic || 0);
+                    basicElement.textContent = `${basicCount.toLocaleString()} active subscribers`;
+                }
+                
+                // Update Standard Plan
+                const standardElement = document.getElementById('standardSubscribers');
+                if (standardElement) {
+                    const standardCount = Number(planDistribution.standard || 0);
+                    standardElement.textContent = `${standardCount.toLocaleString()} active subscribers`;
+                }
+                
+                // Update Premium Plan
+                const premiumElement = document.getElementById('premiumSubscribers');
+                if (premiumElement) {
+                    const premiumCount = Number(planDistribution.premium || 0);
+                    premiumElement.textContent = `${premiumCount.toLocaleString()} active subscribers`;
+                }
+                
+                // Update Pro Plan
+                const proElement = document.getElementById('proSubscribers');
+                if (proElement) {
+                    const proCount = Number(planDistribution.pro || 0);
+                    proElement.textContent = `${proCount.toLocaleString()} active subscribers`;
+                }
+            } catch (error) {
+                console.error('Error updating plan distribution:', error);
+            }
         }
 
-        // Populate transactions table
+        // Populate transactions table with better error handling
         function populateTransactions(transactions) {
-            const tableBody = document.getElementById('transactionTableBody');
-            tableBody.innerHTML = ''; // Clear existing rows
-            
-            transactions.forEach(tx => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${tx.id}</td>
-                    <td>${tx.user}</td>
-                    <td>${tx.plan}</td>
-                    <td>₦${tx.amount.toLocaleString()}</td>
-                    <td>${new Date(tx.date).toLocaleDateString()}</td>
-                    <td><span class="badge bg-${tx.status === 'Active' ? 'success' : 'warning'}">${tx.status}</span></td>
-                `;
-                tableBody.appendChild(row);
-            });
+            try {
+                const tableBody = document.getElementById('transactionTableBody');
+                if (!tableBody) return;
+                
+                tableBody.innerHTML = ''; // Clear existing rows
+                
+                if (!Array.isArray(transactions) || transactions.length === 0) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = '<td colspan="7" class="text-center text-muted">No transactions found</td>';
+                    tableBody.appendChild(row);
+                    
+                    // Update Active Subscriptions count to 0 when no transactions
+                    updateActiveSubscriptionsCount(0);
+                    return;
+                }
+                
+                let activeSubscriptionsCount = 0;
+                
+                transactions.forEach((tx, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${tx.id || 'N/A'}</td>
+                        <td>${tx.user || 'Unknown'}</td>
+                        <td>${tx.plan || 'N/A'}</td>
+                        <td>₦${Number(tx.amount || 0).toLocaleString()}</td>
+                        <td>${tx.date ? new Date(tx.date).toLocaleDateString() : 'N/A'}</td>
+                        <td><span class="badge bg-${tx.status === 'Active' ? 'success' : 'warning'}">${tx.status || 'Pending'}</span></td>
+                    `;
+                    tableBody.appendChild(row);
+                    
+                    // Count active subscriptions
+                    if (tx.status === 'Active') {
+                        activeSubscriptionsCount++;
+                    }
+                });
+                
+                // Update Active Subscriptions count based on transactions
+                updateActiveSubscriptionsCount(activeSubscriptionsCount);
+                
+            } catch (error) {
+                console.error('Error populating transactions:', error);
+            }
+        }
+
+        // Update Active Subscriptions count
+        function updateActiveSubscriptionsCount(count) {
+            const activeSubscriptionsElement = document.getElementById('activeSubscriptionsCount');
+            if (activeSubscriptionsElement) {
+                activeSubscriptionsElement.textContent = count.toLocaleString();
+            }
+        }
+
+        // Refresh data function
+        function refreshSubscriptionData() {
+            fetchSubscriptionData();
         }
 
         // Check authentication and fetch data on page load
         window.onload = function() {
             checkAuth();
             fetchSubscriptionData();
+            
+            // Add refresh button functionality if needed
+            const refreshButton = document.querySelector('[data-refresh="subscriptions"]');
+            if (refreshButton) {
+                refreshButton.addEventListener('click', refreshSubscriptionData);
+            }
         }
 
         // Add Plan Form Handler
