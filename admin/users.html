@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeDoc Admin - Users Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+        }
+        
+        .sidebar {
+            background-color: var(--primary-color);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .sidebar .nav-link {
+            color: white;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .main-content {
+            padding: 20px;
+        }
+        
+        .user-filters {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .status-active {
+            color: #27ae60;
+        }
+        
+        .status-inactive {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar p-0">
+                <div class="d-flex flex-column">
+                    <div class="p-3 text-center">
+                        <h4>DeDoc Admin</h4>
+                    </div>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="dashbaed_admin.html"><i class="fas fa-home me-2"></i> Dashboard</a>
+                        <a class="nav-link active" href="users.html"><i class="fas fa-users me-2"></i> Users</a>
+                        <a class="nav-link" href="subscriptions.html"><i class="fas fa-credit-card me-2"></i> Subscriptions</a>
+                        <a class="nav-link" href="analytics.html"><i class="fas fa-chart-bar me-2"></i> Analytics</a>
+                        <a class="nav-link" href="settings.html"><i class="fas fa-cog me-2"></i> Settings</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 main-content">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Users Management</h2>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">
+                        <i class="fas fa-plus me-2"></i>Add New User
+                    </button>
+                </div>
+
+                <!-- Filters -->
+                <div class="user-filters">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <select class="form-select" id="statusFilter">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select" id="planFilter">
+                                <option value="">All Plans</option>
+                                <option value="basic">Basic</option>
+                                <option value="premium">Premium</option>
+                                <option value="professional">Professional</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Search users..." id="searchUsers">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-secondary w-100" id="resetFilters">Reset Filters</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Plan</th>
+                                <th>Status</th>
+                                <th>Join Date</th>
+                                <th>Last Login</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUserForm">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Subscription Plan</label>
+                            <select class="form-select" required>
+                                <option value="basic">Basic</option>
+                                <option value="premium">Premium</option>
+                                <option value="professional">Professional</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Check authentication
+        function checkAuth() {
+            if (sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Logout function
+        function logout() {
+            sessionStorage.removeItem('isAdminLoggedIn');
+            window.location.href = 'login.html';
+        }
+
+        // API endpoints
+        const API_BASE_URL = 'http://localhost:5000/api';
+
+        // Fetch users data
+        async function fetchUsers() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/auth/users`);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch users data');
+                }
+
+                const users = await response.json();
+                populateTable(users);
+            } catch (error) {
+                console.error('Error fetching users:', error);
+                alert('Failed to load users data. Please try again later.');
+            }
+        }
+
+        // Check authentication and fetch data on page load
+        window.onload = function() {
+            checkAuth();
+            fetchUsers();
+        }
+
+        // Populate users table
+        function populateTable(usersData) {
+            const userTableBody = document.getElementById('userTableBody');
+            userTableBody.innerHTML = '';
+            
+            usersData.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user._id}</td>
+                    <td>${user.fullName}</td>
+                    <td>${user.email}</td>
+                    <td>${user.subscription?.plan || 'No Plan'}</td>
+                    <td><span class="status-${user.status?.toLowerCase() || 'inactive'}">${user.status || 'Inactive'}</span></td>
+                    <td>${new Date(user.createdAt).toLocaleDateString()}</td>
+                    <td>${user.lastLogin ? new Date(user.lastLogin).toLocaleString() : 'Never'}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="editUser('${user._id}')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-info" onclick="viewUserDetails('${user._id}')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteUser('${user._id}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                userTableBody.appendChild(row);
+            });
+        }
+
+        // Filter functionality
+        function filterUsers() {
+            const searchTerm = document.getElementById('searchUsers').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value.toLowerCase();
+            const planFilter = document.getElementById('planFilter').value.toLowerCase();
+
+            const rows = document.getElementById('userTableBody').getElementsByTagName('tr');
+            
+            Array.from(rows).forEach(row => {
+                const name = row.cells[1].textContent.toLowerCase();
+                const email = row.cells[2].textContent.toLowerCase();
+                const plan = row.cells[3].textContent.toLowerCase();
+                const status = row.cells[4].textContent.toLowerCase();
+
+                const matchesSearch = name.includes(searchTerm) || email.includes(searchTerm);
+                const matchesStatus = !statusFilter || status === statusFilter;
+                const matchesPlan = !planFilter || plan === planFilter;
+
+                row.style.display = matchesSearch && matchesStatus && matchesPlan ? '' : 'none';
+            });
+        }
+
+        // User action functions
+        function editUser(userId) {
+            console.log('Edit user:', userId);
+            // Implement edit functionality
+        }
+
+        function viewUserDetails(userId) {
+            console.log('View user details:', userId);
+            // Implement view details functionality
+        }
+
+        function deleteUser(userId) {
+            if (confirm('Are you sure you want to delete this user?')) {
+                console.log('Delete user:', userId);
+                // Implement delete functionality
+            }
+        }
+
+        // Event listeners
+        document.getElementById('searchUsers').addEventListener('input', filterUsers);
+        document.getElementById('statusFilter').addEventListener('change', filterUsers);
+        document.getElementById('planFilter').addEventListener('change', filterUsers);
+        document.getElementById('resetFilters').addEventListener('click', function() {
+            document.getElementById('searchUsers').value = '';
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('planFilter').value = '';
+            fetchUsers(); // Reload all users
+        });
+
+        // Add User Form Handler
+        document.getElementById('addUserForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            // Implement add user functionality
+            console.log('Add user form submitted');
+        });
+    </script>
+</body>
+</html> 

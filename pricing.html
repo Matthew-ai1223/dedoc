@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeDoc - Pricing Plans</title>
+    <link rel="stylesheet" href="asset/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="asset/img/favicon.png" type="image/x-icon">
+    <style>
+        .pricing-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .pricing-badge {
+            background: linear-gradient(135deg, #2196f3, #00bcd4);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+        }
+
+        .pricing-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .pricing-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pricing-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2196f3;
+            margin: 25px 0;
+            text-shadow: 0 2px 10px rgba(33, 150, 243, 0.2);
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .features {
+            margin-bottom: 35px;
+        }
+
+        .features p {
+            margin: 15px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .features p i {
+            color: #2196f3;
+            font-size: 1.1rem;
+        }
+
+        .btn-pricing {
+            background: linear-gradient(45deg, #2196f3, #00bcd4);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+        }
+
+        .btn-pricing:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
+        }
+
+        .same-functions {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .same-functions h3 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .same-functions .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 0;
+        }
+
+        .same-functions .features p {
+            margin: 10px 0;
+        }
+
+        /* Popular Badge */
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(45deg, #ff4081, #ff6b6b);
+            color: white;
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(255, 64, 129, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-container {
+                margin: 40px auto;
+                margin-top: 100px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .pricing-header h1 {
+                font-size: 2rem;
+            }
+
+            .same-functions {
+                padding: 30px 20px;
+            }
+
+            .same-functions .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Add gradient background */
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #e8edf5);
+            min-height: 100vh;
+        }
+
+        /* Enhance header styling */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>DeDoc</span>
+            </div>
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#login" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="pricing-container" data-aos="fade-up">
+        <div class="pricing-header">
+            <div class="pricing-badge">Flexible Plans</div>
+            <h1>Choose Your Health Journey</h1>
+            <p>Select the perfect plan that suits your healthcare needs with our transparent pricing options</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Basic Plan</h3>
+                <div class="price">NGN 50</div>
+                <div class="duration">for 2h</div>
+                <div class="features">
+                    <p><i class="fas fa-check-circle"></i> Basic AI consultation</p>
+                    <p><i class="fas fa-check-circle"></i> Quick symptom check</p>
+                    <p><i class="fas fa-check-circle"></i> 2-hour access</p>
+                </div>
+                <a href="#" class="btn-pricing">Get Started</a>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="popular-badge">Popular</div>
+                <h3>Standard Plan</h3>
+                <div class="price">NGN 450</div>
+                <div class="duration">for 1 week</div>
+                <div class="features">
+                    <p><i class="fas fa-check-circle"></i> Full AI consultation</p>
+                    <p><i class="fas fa-check-circle"></i> Advanced symptom analysis</p>
+                    <p><i class="fas fa-check-circle"></i> Week-long access</p>
+                </div>
+                <a href="#" class="btn-pricing">Get Started</a>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Premium Plan</h3>
+                <div class="price">NGN 850</div>
+                <div class="duration">for 2 week</div>
+                <div class="features">
+                    <p><i class="fas fa-check-circle"></i> Priority AI consultation</p>
+                    <p><i class="fas fa-check-circle"></i> Comprehensive health tracking</p>
+                    <p><i class="fas fa-check-circle"></i> 2-week access</p>
+                </div>
+                <a href="#" class="btn-pricing">Get Started</a>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Pro Plan</h3>
+                <div class="price">NGN 1,600</div>
+                <div class="duration">for 1 month</div>
+                <div class="features">
+                    <p><i class="fas fa-check-circle"></i> VIP AI consultation</p>
+                    <p><i class="fas fa-check-circle"></i> 24/7 premium support</p>
+                    <p><i class="fas fa-check-circle"></i> Full feature access</p>
+                </div>
+                <a href="#" class="btn-pricing">Get Started</a>
+            </div>
+        </div>
+
+        <div class="same-functions" data-aos="fade-up">
+            <h3>All Plans Include</h3>
+            <div class="features">
+                <p><i class="fas fa-check-circle"></i> Access to AI Doctor</p>
+                <p><i class="fas fa-check-circle"></i> Basic Health Monitoring</p>
+                <p><i class="fas fa-check-circle"></i> Emergency Support</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeDoc Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+        }
+        
+        .sidebar {
+            background-color: var(--primary-color);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .sidebar .nav-link {
+            color: white;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .main-content {
+            padding: 20px;
+        }
+        
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats-card {
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .table-responsive {
+            margin-top: 20px;
+        }
+        
+        .status-active {
+            color: #27ae60;
+        }
+        
+        .status-inactive {
+            color: #e74c3c;
+        }
+
+        .user-profile {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .user-profile .username {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .logout-btn {
+            color: #e74c3c;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn:hover {
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar p-0">
+                <div class="d-flex flex-column">
+                    <div class="p-3 text-center">
+                        <h4>DeDoc Admin</h4>
+                    </div>
+                    <div class="user-profile">
+                        <div class="username">
+                            <i class="fas fa-user me-2"></i>
+                            <span id="adminUsername">sammedi</span>
+                        </div>
+                        <a href="#" class="logout-btn" onclick="logout()">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </a>
+                    </div>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#"><i class="fas fa-home me-2"></i> Dashboard</a>
+                        <a class="nav-link" href="users.html"><i class="fas fa-users me-2"></i> Users</a>
+                        <a class="nav-link" href="subscriptions.html"><i class="fas fa-credit-card me-2"></i> Subscriptions</a>
+                        <a class="nav-link" href="analytics.html"><i class="fas fa-chart-bar me-2"></i> Analytics</a>
+                        <a class="nav-link" href="settings.html"><i class="fas fa-cog me-2"></i> Settings</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 main-content">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h2>Dashboard Overview</h2>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Users</h5>
+                                <h3 class="card-text" id="totalUsers">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Active Subscriptions</h5>
+                                <h3 class="card-text" id="activeSubscriptions">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Monthly Revenue</h5>
+                                <h3 class="card-text" id="monthlyRevenue">$0</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <h5 class="card-title">New Users (Today)</h5>
+                                <h3 class="card-text" id="newUsers">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="card mt-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">User Management</h5>
+                        <div class="input-group w-25">
+                            <input type="text" class="form-control" placeholder="Search users..." id="searchUsers">
+                            <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>User ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Subscription Plan</th>
+                                        <th>Status</th>
+                                        <th>Join Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userTableBody">
+                                    <!-- Table rows will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Check authentication
+        function checkAuth() {
+            if (sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Logout function
+        function logout() {
+            sessionStorage.removeItem('isAdminLoggedIn');
+            window.location.href = 'login.html';
+        }
+
+        // Check authentication on page load
+        window.onload = function() {
+            checkAuth();
+            fetchDashboardData();
+        }
+
+        // API endpoints
+        const API_BASE_URL = 'http://localhost:5000/api';
+
+        // Fetch all dashboard data
+        async function fetchDashboardData() {
+            try {
+                const usersResponse = await fetch(`${API_BASE_URL}/auth/users`);
+                
+                if (!usersResponse.ok) {
+                    const errorData = await usersResponse.json();
+                    throw new Error(errorData.message || 'Failed to fetch users data');
+                }
+
+                const users = await usersResponse.json();
+                console.log('Fetched users:', users); // Debug log
+                updateDashboardStats(users);
+                populateUsersTable(users);
+            } catch (error) {
+                console.error('Error fetching dashboard data:', error);
+                alert('Failed to load dashboard data. Please try again later.');
+            }
+        }
+
+        // Update dashboard statistics
+        function updateDashboardStats(users) {
+            const activeUsers = users.filter(user => user.status === 'active').length;
+            const today = new Date().toISOString().split('T')[0];
+            const newUsersToday = users.filter(user => new Date(user.createdAt).toISOString().split('T')[0] === today).length;
+
+            document.getElementById('totalUsers').textContent = users.length;
+            document.getElementById('activeSubscriptions').textContent = activeUsers;
+            document.getElementById('monthlyRevenue').textContent = '$' + (activeUsers * 99).toLocaleString();
+            document.getElementById('newUsers').textContent = newUsersToday;
+        }
+
+        // Populate users table with real data
+        function populateUsersTable(users) {
+            const userTableBody = document.getElementById('userTableBody');
+            userTableBody.innerHTML = ''; // Clear existing rows
+
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user._id}</td>
+                    <td>${user.fullName}</td>
+                    <td>${user.email}</td>
+                    <td>${user.subscription?.plan || 'No Plan'}</td>
+                    <td><span class="status-${user.status?.toLowerCase() || 'inactive'}">${user.status || 'Inactive'}</span></td>
+                    <td>${new Date(user.createdAt).toLocaleDateString()}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="editUser('${user._id}')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-info" onclick="viewUserDetails('${user._id}')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </td>
+                `;
+                userTableBody.appendChild(row);
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchUsers').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = userTableBody.getElementsByTagName('tr');
+            
+            Array.from(rows).forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // User action functions
+        function editUser(userId) {
+            // Implement edit user functionality
+            console.log('Edit user:', userId);
+        }
+
+        function viewUserDetails(userId) {
+            // Implement view user details functionality
+            console.log('View user details:', userId);
+        }
+    </script>
+</body>
+</html>
+
+
+
+<!-- creat a front end pag for admin in @dashbaed_admin.html to view all the users data, subscreaptions plan, and others data related to the users only excluding users password -->
