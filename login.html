@@ -438,34 +438,27 @@
         document.querySelector('.forgot-password').addEventListener('click', async function(e) {
             e.preventDefault();
             
-            const { value: email } = await Swal.fire({
+            Swal.fire({
                 title: 'Password Recovery',
-                input: 'email',
-                inputLabel: 'Enter your email address',
-                inputPlaceholder: 'Enter your email',
+                html: `
+                    <div style="text-align: left; padding: 20px;">
+                        <p style="margin-bottom: 15px; font-size: 16px; line-height: 1.6;">
+                            <strong>Dear User,</strong>
+                        </p>
+                        <p style="margin-bottom: 15px; font-size: 16px; line-height: 1.6;">
+                            Your login credentials were sent to your email during registration.
+                        </p>
+                        <p style="margin-bottom: 20px; font-size: 16px; line-height: 1.6;">
+                            If you need help, please contact us at: 
+                            <a href="mailto:support@dedoc.com" style="color: #667eea; text-decoration: none; font-weight: 600;">support@dedoc.com</a>
+                        </p>
+                    </div>
+                `,
+                icon: 'info',
                 confirmButtonColor: '#667eea',
-                showCancelButton: true,
-                inputValidator: (value) => {
-                    if (!value) {
-                        return 'Please enter your email address!';
-                    }
-                }
+                confirmButtonText: 'Got it',
+                showCancelButton: false
             });
-
-            if (email) {
-                // Here you can add the API call to handle password reset
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Reset Link Sent!',
-                    text: 'Please check your email for password reset instructions.',
-                    confirmButtonColor: '#667eea'
-                });
-            }
         });
     </script>
 </body>
-<<<<<<< HEAD
-</html>
-=======
-</html>
->>>>>>> 1b0e2bbafa927be25c6debcc1a0507b65d8aa824
