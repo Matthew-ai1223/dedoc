@@ -33,7 +33,7 @@
 
         .login-image {
             flex: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
             padding: 40px;
             display: flex;
             flex-direction: column;
@@ -52,13 +52,16 @@
             right: 0;
             bottom: 0;
             background: url('asset/img/login-bg.png') center/cover;
-            opacity: 0.1;
+            opacity: 0.3;
+            z-index: 0;
         }
 
         .login-image h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
             position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .login-image p {
@@ -66,6 +69,8 @@
             text-align: center;
             position: relative;
             max-width: 400px;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .login-form {
@@ -281,6 +286,44 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Password visibility toggle styles */
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #667eea;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 5px;
+            transition: color 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+        }
+
+        .password-toggle:hover {
+            color: #5a6fd8;
+        }
+
+        .password-toggle:focus {
+            outline: none;
+        }
+
+        .form-group .password-container .form-input {
+            padding-right: 45px;
+        }
     </style>
 </head>
 <body>
@@ -306,7 +349,12 @@
                     </div>
                     <div class="form-group">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="password" class="form-input" placeholder="Password" required>
+                        <div class="password-container">
+                            <input type="password" id="password" class="form-input" placeholder="Password" required>
+                            <button type="button" class="password-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="remember-forgot">
                         <label class="remember-me">
@@ -432,6 +480,25 @@
                     window.location.href = 'dashboard.html';
                 }
             }
+        });
+
+        // Password visibility toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordToggle = document.querySelector('.password-toggle');
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = passwordToggle.querySelector('i');
+
+            passwordToggle.addEventListener('click', function() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    toggleIcon.classList.remove('fa-eye');
+                    toggleIcon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    toggleIcon.classList.remove('fa-eye-slash');
+                    toggleIcon.classList.add('fa-eye');
+                }
+            });
         });
 
         // Handle forgot password
