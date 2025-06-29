@@ -172,6 +172,76 @@
             color: #9b59b6;
         }
 
+        /* Password visibility toggle styles */
+        .password-field {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            color: #999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .password-toggle:hover {
+            color: #9b59b6;
+        }
+
+        .password-field .input-field {
+            padding-right: 45px;
+        }
+
+        /* Phone Input with Country Code Styles */
+        .phone-input-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .phone-input-wrapper i {
+            color: #999;
+            margin-left: 12px;
+            margin-right: 12px;
+            font-size: 1em;
+        }
+
+        .country-code {
+            padding: 12px 12px 12px 0;
+            background: #f8f9fa;
+            border: none;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .phone-input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 12px 15px;
+            border-radius: 0 6px 6px 0;
+            background: transparent;
+        }
+
+        .phone-input:focus {
+            border-left: 1px solid #9b59b6 !important;
+        }
+
+        .phone-input-wrapper:focus-within .country-code {
+            border-color: #9b59b6;
+            background: rgba(155, 89, 182, 0.05);
+        }
+
         .btn {
             width: 100%;
             padding: 14px;
@@ -383,7 +453,10 @@
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" class="input-field" placeholder="Enter your phone number" required>
+                    <div class="phone-input-wrapper">
+                        <span class="country-code" style="margin-left: 30px;">+234</span>
+                        <input type="tel" id="phone" class="input-field phone-input" placeholder="Enter your phone number" required>
+                    </div>
                     <i class="fas fa-phone"></i>
                 </div>
             </div>
@@ -410,15 +483,17 @@
             </div>
 
             <div class="form-row" data-aos="fade-left" data-aos-delay="1000">
-                <div class="form-group">
+                <div class="form-group password-field">
                     <label for="password">Password</label>
                     <input type="password" id="password" class="input-field" placeholder="Create a password" required>
                     <i class="fas fa-lock"></i>
+                    <i class="fas fa-eye password-toggle" onclick="togglePassword('password') " style="margin-left: 260px; margin-top: 10px;"></i>
                 </div>
-                <div class="form-group">
+                <div class="form-group password-field">
                     <label for="confirm-password">Confirm Password</label>
                     <input type="password" id="confirm-password" class="input-field" placeholder="Confirm your password" required>
                     <i class="fas fa-lock"></i>
+                    <i class="fas fa-eye password-toggle" onclick="togglePassword('confirm-password')" style="margin-left: 260px; margin-top: 10px;"></i>
                 </div>
             </div>
 
@@ -481,8 +556,8 @@
                 alert("Please enter your date of birth!");
                 return false;
             }
-            if (age < 18) {
-                alert("You must be at least 18 years old to register!");
+            if (age < 12) {
+                alert("You must be at least 12 years old to register!");
                 return false;
             }
 
@@ -492,17 +567,18 @@
                 return false;
             }
 
-            if (password.length < 8) {
-                alert("Password must be at least 8 characters long!");
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long!");
                 return false;
             }
 
             // Phone number validation
             const phoneRegex = /^\d{10}$/;
             if (!phoneRegex.test(phone)) {
-                alert("Please enter a valid 10-digit phone number!");
+                alert("Please enter a valid 10-digit phone number (without country code)!");
                 return false;
             }
+            const fullPhone = '+234' + phone;
 
             // Username validation
             if (username.length < 4) {
@@ -528,7 +604,7 @@
                 username: document.getElementById('username').value,
                 email: document.getElementById('email').value,
                 dateOfBirth: document.getElementById('dateOfBirth').value,
-                phoneNumber: document.getElementById('phone').value,
+                phoneNumber: fullPhone,
                 state: document.getElementById('state').value,
                 city: document.getElementById('city').value,
                 password: document.getElementById('password').value,
@@ -601,6 +677,23 @@
             if (value.length > 10) value = value.slice(0, 10);
             e.target.value = value;
         });
+
+        function togglePassword(fieldId) {
+            const passwordField = document.getElementById(fieldId);
+            const toggleIcon = passwordField.parentElement.querySelector('.password-toggle');
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            
+            passwordField.setAttribute('type', type);
+            
+            // Toggle the eye icon
+            if (type === 'text') {
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
     </script>
 </body>
 </html>
