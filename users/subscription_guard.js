@@ -12,7 +12,7 @@ async function fetchSubscriptionStatus() {
     if (!token) return null;
 
     try {
-        const response = await fetch('https://dedoc.com.ng.300plus.ng/api/subscription/status', {
+        const response = await fetch('https://terrific-presence-production.up.railway.app/api/subscription/status', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -44,7 +44,7 @@ async function checkPageAccess(pageName = null) {
     if (!currentPage) return false;
 
     try {
-        const response = await fetch(`https://dedoc.com.ng.300plus.ng/api/subscription/check-access?page=${currentPage}`, {
+        const response = await fetch(`https://terrific-presence-production.up.railway.app/api/subscription/check-access?page=${currentPage}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
