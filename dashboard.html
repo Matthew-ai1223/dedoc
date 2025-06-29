@@ -874,11 +874,11 @@
         <div class="health-card" data-aos="fade-up">
             <div class="user-welcome">
                 <h2>Welcome back, <span id="username">John!</span></h2>
-                <span class="account-badge">Premium Account</span>
+                <span class="account-badge">Free Account</span>
             </div>
             <div class="subscription-info">
-                <p>Last Payment: <strong>March 15, 2024</strong></p>
-                <p>Payment Due: <strong>April 15, 2024</strong></p>
+                <p>Last Login: <strong>Today</strong></p>
+                <!-- <p>Payment Due: <strong>April 15, 2024</strong></p> -->
             </div>
             <div class="health-info">
                 <div class="health-stat">
@@ -887,11 +887,11 @@
                 </div>
                 <div class="health-stat">
                     <h3>Plan Type</h3>
-                    <p>Premium</p>
+                    <!-- <p>Premium</p> -->
                 </div>
                 <div class="health-stat">
                     <h3>Member Since</h3>
-                    <p id="createdAt">Jan 2024</p>
+                    <!-- <p id="createdAt">Jan 2024</p> -->
                 </div>
             </div>
         </div>
@@ -1081,7 +1081,7 @@
             const userData = JSON.parse(localStorage.getItem('user'));
             
             // Update username in the welcome message
-            document.getElementById('username').textContent = userData.fullName.split(' ')[0] + '!';
+            document.getElementById('username').textContent = userData.username.split(' ')[0] + '!';
 
             try {
                 // Fetch fresh user data from the server
