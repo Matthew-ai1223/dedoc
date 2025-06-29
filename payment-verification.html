@@ -160,7 +160,7 @@
                 `Attempt ${verificationAttempts} of ${MAX_ATTEMPTS}: Please wait while we verify your payment.`);
 
             // First, get the payment details
-            fetch(`https://dedoc.com.ng.300plus.ng/api/payments/details?reference=${reference}`, {
+            fetch(`https://terrific-presence-production.up.railway.app/api/payments/details?reference=${reference}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -177,7 +177,7 @@
             })
             .then(paymentData => {
                 // Now verify the payment
-                return fetch(`https://dedoc.com.ng.300plus.ng/api/payments/verify?reference=${reference}`, {
+                return fetch(`https://terrific-presence-production.up.railway.app/api/payments/verify?reference=${reference}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
