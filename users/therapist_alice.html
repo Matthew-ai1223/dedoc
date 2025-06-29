@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeDoc Mental Health Consultation - Therapist Alice</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         :root {
             --primary-color: #7C5CBF;
@@ -231,7 +232,7 @@
 
     <main class="chat-container">
         <div class="chat-wrapper">
-            <div id="chatContainer" style="display: block;">
+            <div id="chatContainer" style="display: none;">
                 <iframe
                     src="https://www.chatbase.co/chatbot-iframe/l1HvhOp2gi03cxFZGbAq_"
                     class="chat-iframe"
@@ -282,19 +283,21 @@
         Back to Dashboard
     </a> -->
 
-    <div class="dashboard-container">
+    <!-- <div class="dashboard-container">
         <div id="subscriptionInfo" class="subscription-info"></div>
-    </div>
+    </div> -->
 
-    <script src="subscription_check.js"></script>
+    <script src="subscription_guard.js"></script>
     <script>
         // Check subscription status when page loads
         document.addEventListener('DOMContentLoaded', async () => {
             const chatContainer = document.getElementById('chatContainer');
             const subscriptionPrompt = document.getElementById('subscriptionPrompt');
             
-            const isSubscribed = await checkSubscription();
-            if (isSubscribed) {
+            // Use the comprehensive subscription guard
+            const hasAccess = await enforceSubscriptionOrRedirect();
+            
+            if (hasAccess) {
                 chatContainer.style.display = 'block';
                 subscriptionPrompt.style.display = 'none';
             } else {

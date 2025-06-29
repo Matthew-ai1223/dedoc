@@ -6,6 +6,7 @@
     <title>DeDoc - STD Consultation</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         :root {
             --primary-color: #4a90e2;
@@ -187,7 +188,7 @@
                 <p>Get confidential information and guidance about STDs from our AI health assistant</p>
             </div>
             <div class="chatbot-container">
-                <div id="chatContainer" style="display: block;">
+                <div id="chatContainer" style="display: none;">
                     <iframe
                         src="https://www.chatbase.co/chatbot-iframe/AXg0htAIi5VRI5yQ_29z_"
                         class="chatbot-iframe"
@@ -209,13 +210,13 @@
             <p><i class="fas fa-shield-alt"></i> Your privacy is our priority. All conversations are confidential and encrypted.</p>
         </div>
 
-        <div class="dashboard-container">
+        <!-- <div class="dashboard-container">
             <div id="subscriptionInfo" class="subscription-info"></div>
-        </div>
+        </div> -->
     </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="subscription_check.js"></script>
+    <script src="subscription_guard.js"></script>
     <script>
         AOS.init({
             duration: 800,
@@ -227,8 +228,10 @@
             const chatContainer = document.getElementById('chatContainer');
             const subscriptionPrompt = document.getElementById('subscriptionPrompt');
             
-            const isSubscribed = await checkSubscription();
-            if (isSubscribed) {
+            // Use the comprehensive subscription guard
+            const hasAccess = await enforceSubscriptionOrRedirect();
+            
+            if (hasAccess) {
                 chatContainer.style.display = 'block';
                 subscriptionPrompt.style.display = 'none';
             } else {

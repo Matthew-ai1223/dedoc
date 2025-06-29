@@ -12,9 +12,20 @@
             --secondary-color: #5C6BC0;
             --accent-color: #FF5722;
             --success-color: #2ECC71;
+            --warning-color: #F39C12;
+            --danger-color: #E74C3C;
+            --info-color: #3498DB;
+            --purple-color: #9B59B6;
+            --pink-color: #E91E63;
+            --teal-color: #1ABC9C;
             --dark-color: #2C3E50;
             --light-color: #ECF0F1;
             --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-success: linear-gradient(135deg, var(--success-color), var(--teal-color));
+            --gradient-warning: linear-gradient(135deg, var(--warning-color), #E67E22);
+            --gradient-danger: linear-gradient(135deg, var(--danger-color), #C0392B);
+            --gradient-purple: linear-gradient(135deg, var(--purple-color), #8E44AD);
+            --gradient-pink: linear-gradient(135deg, var(--pink-color), #AD1457);
         }
 
         * {
@@ -25,13 +36,14 @@
         }
 
         body {
-            background: #f5f7fa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             color: var(--dark-color);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         .dashboard-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -39,40 +51,79 @@
         .dashboard-header {
             text-align: center;
             margin-bottom: 3rem;
-            padding: 2rem;
+            padding: 3rem 2rem;
             background: var(--gradient-primary);
-            border-radius: 15px;
+            border-radius: 20px;
             color: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(74, 144, 226, 0.3);
             position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
         }
 
         .dashboard-header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .dashboard-header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-btn {
+            margin-top: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
         .feature-card {
             background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .feature-card::before {
@@ -81,15 +132,15 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: var(--gradient-primary);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .feature-card:hover::before {
@@ -97,20 +148,35 @@
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
+            font-size: 3rem;
             margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .feature-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
             color: var(--dark-color);
+            font-weight: 700;
         }
 
         .feature-description {
             color: #666;
             margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         .feature-link {
@@ -119,7 +185,11 @@
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(74, 144, 226, 0.1);
         }
 
         .feature-link i {
@@ -128,7 +198,9 @@
         }
 
         .feature-link:hover {
-            color: var(--secondary-color);
+            color: white;
+            background: var(--gradient-primary);
+            transform: translateX(5px);
         }
 
         .feature-link:hover i {
@@ -137,43 +209,70 @@
 
         .premium-badge {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 1.5rem;
+            right: 1.5rem;
             background: linear-gradient(135deg, #FFD700, #FFA500);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
         }
 
         .subscription-info {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 25px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .subscription-status {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .subscription-status i {
             color: #2ecc71;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
 
         .subscription-status span {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: white;
         }
 
@@ -185,16 +284,16 @@
 
         .subscription-details p {
             margin: 0;
-            padding: 10px;
+            padding: 15px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
             gap: 5px;
         }
 
         .subscription-details p strong {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -211,12 +310,12 @@
             }
 
             .dashboard-header {
-                padding: 1.5rem;
+                padding: 2rem 1.5rem;
                 margin-bottom: 2rem;
             }
 
             .dashboard-header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .features-grid {
@@ -225,37 +324,43 @@
             }
 
             .feature-card {
-                padding: 1.5rem;
+                padding: 2rem;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2.5rem;
             }
 
             .subscription-info {
-                padding: 15px;
-                margin-top: 15px;
+                padding: 20px;
+                margin-top: 20px;
             }
 
             .subscription-status {
                 flex-direction: column;
                 text-align: center;
-                gap: 8px;
-                margin-bottom: 12px;
-                padding-bottom: 8px;
+                gap: 10px;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
             }
 
             .subscription-status i {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .subscription-status span {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .subscription-details {
                 grid-template-columns: 1fr;
-                gap: 10px;
+                gap: 12px;
             }
 
             .subscription-details p {
-                padding: 12px;
+                padding: 15px;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
@@ -274,13 +379,29 @@
         }
 
         @media (max-width: 480px) {
+            .dashboard-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .dashboard-header p {
+                font-size: 1rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .feature-title {
+                font-size: 1.4rem;
+            }
+
             .subscription-info {
-                padding: 12px;
-                margin-top: 12px;
+                padding: 15px;
+                margin-top: 15px;
             }
 
             .subscription-details p {
-                padding: 10px;
+                padding: 12px;
             }
 
             .subscription-details p strong {
@@ -296,89 +417,243 @@
 <body>
     <div class="dashboard-container">
         <header class="dashboard-header" data-aos="fade-down">
-            <h1>Premium Features Dashboard</h1>
-            <p>Unlock the full potential of DeDoc with our premium features designed to enhance your healthcare experience</p>
-            <button class="activate-btn" style="margin-top: 10px; background-color: #4A90E2; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;"  onclick="window.location.href='../dashboard.html'">Back to Dashboard</button>
+            <h1>Premium Health Services</h1>
+            <p>Access comprehensive healthcare solutions powered by AI technology. Get personalized care, expert consultations, and 24/7 support for all your health needs.</p>
+            <button class="back-btn" onclick="window.location.href='../dashboard.html'">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </button>
             <div id="subscriptionInfo" class="subscription-info"></div>
         </header>
 
-        <div class="features-grid">
-            <!-- AI Consultation -->
-            <div class="feature-card premium-feature" data-aos="fade-up">
-                <span class="premium-badge">Premium</span>
-                <div class="feature-icon">
-                    <i class="fas fa-user-md"></i>
+        <!-- Primary Care Services -->
+        <div class="service-category">
+            <h2 class="category-title" data-aos="fade-up">Primary Care Services</h2>
+            <div class="features-grid">
+                <!-- AI Doctor Consultation -->
+                <div class="feature-card premium-feature" data-aos="fade-up">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h2 class="feature-title">AI Doctor Consultation</h2>
+                    <p class="feature-description">Get comprehensive health assessments, symptom analysis, and personalized treatment recommendations from our advanced AI medical system.</p>
+                    <a href="doc_John.html" class="feature-link">
+                        Start Consultation <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h2 class="feature-title">Doctor Consultation</h2>
-                <p class="feature-description">Get personalized health advice and preliminary diagnoses through our advanced AI system.</p>
-                <a href="doc_John.html" class="feature-link">
-                    Start Consultation <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
 
-            <!-- Health Tracking -->
-            <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="100">
-                <span class="premium-badge">Premium</span>
-                <div class="feature-icon">
-                    <i class="fas fa-user-md"></i>
+                <!-- Mental Health Therapy -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="100">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h2 class="feature-title">Mental Health Therapy</h2>
+                    <p class="feature-description">Access professional mental health support, counseling, and therapy sessions with our AI-powered therapist for emotional wellness.</p>
+                    <a href="therapist_alice.html" class="feature-link">
+                        Start Therapy <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h2 class="feature-title">Therapist Consultation</h2>
-                <p class="feature-description">Monitor your mental health and get personalized advice from our experienced AI powered therapists.</p>
-                <a href="therapist_alice.html" class="feature-link">
-                    Start Consultation <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
 
-            <!-- Medical Records -->
-            <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="200">
-                <span class="premium-badge">Premium</span>
-                <div class="feature-icon">
-                    <i class="fas fa-file-medical"></i>
+                <!-- STD/STI Consultation -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="200">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h2 class="feature-title">STD/STI Consultation</h2>
+                    <p class="feature-description">Confidential and professional guidance for sexual health concerns, testing recommendations, and treatment options.</p>
+                    <a href="std.html" class="feature-link">
+                        Get Consultation <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h2 class="feature-title">STD/STI Consultation</h2>
-                <p class="feature-description">Get personalized health advice and preliminary diagnoses through our advanced AI system.</p>
-                <a href="std.html" class="feature-link">
-                    Start Consultation <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
 
-            <!-- Specialist Consultation -->
-            <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="300">
-                <span class="premium-badge">Premium</span>
-                <div class="feature-icon">
-                    <i class="fas fa-baby"></i>
+                <!-- Pregnancy Care -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="300">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h2 class="feature-title">Pregnancy Care</h2>
+                    <p class="feature-description">Comprehensive prenatal care, pregnancy monitoring, nutrition guidance, and support throughout your pregnancy journey.</p>
+                    <a href="p_c.html" class="feature-link">
+                        Start Care <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h2 class="feature-title">Pregnancy Care Consultation</h2>
-                <p class="feature-description">Pregnancy care consultation is a service that provides personalized advice and support to pregnant women. It includes regular check-ups, monitoring of the pregnancy, and advice on diet, exercise, and other aspects of pregnancy.</p>
-                <a href="p_c.html" class="feature-link">
-                    Start Consultation <i class="fas fa-arrow-right"></i>
-                </a>
             </div>
+        </div>
 
-            <!-- Health Reports -->
-            <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="400">
-                <span class="premium-badge">Premium</span>
-                <div class="feature-icon">
-                    <i class="fas fa-file-alt"></i>
+        <!-- Specialized Health Services -->
+        <div class="service-category">
+            <h2 class="category-title" data-aos="fade-up">Specialized Health Services</h2>
+            <div class="features-grid">
+                <!-- Nutrition & Diet -->
+                <div class="feature-card premium-feature" data-aos="fade-up">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h2 class="feature-title">Nutrition & Diet Planning</h2>
+                    <p class="feature-description">Personalized nutrition plans, dietary recommendations, meal planning, and weight management strategies tailored to your health goals.</p>
+                    <a href="nutrition_consultation.html" class="feature-link">
+                        Get Plan <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h2 class="feature-title">Health Reports</h2>
-                <p class="feature-description">Generate comprehensive health reports and get personalized health recommendations.</p>
-                <a href="health_reports.html" class="feature-link">
-                    View Reports <i class="fas fa-arrow-right"></i>
-                </a>
+
+                <!-- Fitness & Exercise -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="100">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h2 class="feature-title">Fitness & Exercise Programs</h2>
+                    <p class="feature-description">Customized workout plans, exercise routines, fitness tracking, and physical therapy recommendations for optimal health.</p>
+                    <a href="fitness_programs.html" class="feature-link">
+                        Start Program <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Chronic Disease Management -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="200">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h2 class="feature-title">Chronic Disease Management</h2>
+                    <p class="feature-description">Comprehensive care for diabetes, hypertension, heart disease, and other chronic conditions with ongoing monitoring and support.</p>
+                    <a href="chronic_care.html" class="feature-link">
+                        Manage Health <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Sleep & Wellness -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="300">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h2 class="feature-title">Sleep & Wellness</h2>
+                    <p class="feature-description">Sleep optimization, stress management, relaxation techniques, and overall wellness strategies for better health outcomes.</p>
+                    <a href="sleep_wellness.html" class="feature-link">
+                        Improve Sleep <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
+        </div>
 
-            <!-- Emergency Support -->
-            <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="500">
-                <span class="premium-badge">Premium</span>
-                <div class="feature-icon">
-                    <i class="fas fa-ambulance"></i>
+        <!-- Advanced Health Services -->
+        <div class="service-category">
+            <h2 class="category-title" data-aos="fade-up">Advanced Health Services</h2>
+            <div class="features-grid">
+                <!-- Health Reports & Analytics -->
+                <div class="feature-card premium-feature" data-aos="fade-up">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2 class="feature-title">Health Reports & Analytics</h2>
+                    <p class="feature-description">Comprehensive health reports, trend analysis, progress tracking, and personalized health insights with actionable recommendations.</p>
+                    <a href="health_reports.html" class="feature-link">
+                        View Reports <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h2 class="feature-title">24/7 Emergency Support</h2>
-                <p class="feature-description">Access round-the-clock emergency support and quick response medical assistance.</p>
-                <a href="emergency_support.html" class="feature-link">
-                    Emergency Services <i class="fas fa-arrow-right"></i>
-                </a>
+
+                <!-- Emergency Support -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="100">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h2 class="feature-title">24/7 Emergency Support</h2>
+                    <p class="feature-description">Round-the-clock emergency medical assistance, crisis intervention, and immediate health guidance when you need it most.</p>
+                    <a href="emergency_support.html" class="feature-link">
+                        Emergency Services <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Medication Management -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="200">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h2 class="feature-title">Medication Management</h2>
+                    <p class="feature-description">Medication tracking, dosage reminders, drug interaction checking, and prescription management for safe medication use.</p>
+                    <a href="medication_management.html" class="feature-link">
+                        Manage Meds <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Telemedicine -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="300">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h2 class="feature-title">Telemedicine Consultations</h2>
+                    <p class="feature-description">Virtual doctor visits, remote consultations, and digital health assessments from the comfort of your home.</p>
+                    <a href="telemedicine.html" class="feature-link">
+                        Book Visit <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specialty Care Services -->
+        <div class="service-category">
+            <h2 class="category-title" data-aos="fade-up">Specialty Care Services</h2>
+            <div class="features-grid">
+                <!-- Dermatology -->
+                <div class="feature-card premium-feature" data-aos="fade-up">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-allergies"></i>
+                    </div>
+                    <h2 class="feature-title">Dermatology Consultation</h2>
+                    <p class="feature-description">Expert skin care advice, rash evaluation, acne treatment, and dermatological condition management with AI-powered analysis.</p>
+                    <a href="dermatology_consultation.html" class="feature-link">
+                        Skin Consultation <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Pediatrics -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="100">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h2 class="feature-title">Pediatric Care</h2>
+                    <p class="feature-description">Specialized healthcare for children, including growth monitoring, vaccination schedules, and pediatric health guidance.</p>
+                    <a href="pediatric_care.html" class="feature-link">
+                        Child Care <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Women's Health -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="200">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h2 class="feature-title">Women's Health</h2>
+                    <p class="feature-description">Comprehensive women's health services including gynecology, reproductive health, and women-specific health concerns.</p>
+                    <a href="womens_health.html" class="feature-link">
+                        Women's Care <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Dental Care -->
+                <div class="feature-card premium-feature" data-aos="fade-up" data-aos-delay="300">
+                    <span class="premium-badge">Premium</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h2 class="feature-title">Dental Health</h2>
+                    <p class="feature-description">Oral health assessment, dental care guidance, hygiene recommendations, and dental problem consultation.</p>
+                    <a href="dental_health.html" class="feature-link">
+                        Dental Care <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
