@@ -173,26 +173,32 @@
         }
 
         /* Password visibility toggle styles */
-        .password-field {
+        .form-group.password-field {
             position: relative;
         }
-
-        .password-toggle {
+        .form-group.password-field .input-field {
+            padding-left: 40px;  /* space for lock icon */
+            padding-right: 45px; /* space for eye icon */
+        }
+        .form-group.password-field .fa-lock {
+            position: absolute;
+            left: 15px;
+            top: 40px;
+            color: #999;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .form-group.password-field .password-toggle {
             position: absolute;
             right: 15px;
             top: 40px;
             color: #999;
             cursor: pointer;
+            z-index: 2;
             transition: all 0.3s ease;
-            z-index: 10;
         }
-
-        .password-toggle:hover {
+        .form-group.password-field .password-toggle:hover {
             color: #9b59b6;
-        }
-
-        .password-field .input-field {
-            padding-right: 45px;
         }
 
         /* Phone Input with Country Code Styles */
@@ -486,14 +492,14 @@
                 <div class="form-group password-field">
                     <label for="password">Password</label>
                     <input type="password" id="password" class="input-field" placeholder="Create a password" required>
-                    <i class="fas fa-lock"></i>
-                    <i class="fas fa-eye password-toggle" onclick="togglePassword('password') " style="margin-left: 260px; margin-top: 10px;"></i>
+                    <!-- <i class="fas fa-lock"></i> -->
+                    <i class="fas fa-eye password-toggle" onclick="togglePassword('password')"></i>
                 </div>
                 <div class="form-group password-field">
                     <label for="confirm-password">Confirm Password</label>
                     <input type="password" id="confirm-password" class="input-field" placeholder="Confirm your password" required>
-                    <i class="fas fa-lock"></i>
-                    <i class="fas fa-eye password-toggle" onclick="togglePassword('confirm-password')" style="margin-left: 260px; margin-top: 10px;"></i>
+                    <!-- <i class="fas fa-lock"></i> -->
+                    <i class="fas fa-eye password-toggle" onclick="togglePassword('confirm-password')"></i>
                 </div>
             </div>
 
